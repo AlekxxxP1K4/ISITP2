@@ -1,0 +1,7 @@
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\ClassLib\ClassLib\bin\Debug\WcfServiceLib.dll.config
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\ClassLib\ClassLib\bin\Debug\WcfServiceLib.dll
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\ClassLib\ClassLib\bin\Debug\WcfServiceLib.pdb
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\ClassLib\ClassLib\obj\Debug\ClassLib.csprojAssemblyReference.cache
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\ClassLib\ClassLib\obj\Debug\ClassLib.csproj.CoreCompileInputs.cache
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\ClassLib\ClassLib\obj\Debug\WcfServiceLib.dll
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\ClassLib\ClassLib\obj\Debug\WcfServiceLib.pdb
