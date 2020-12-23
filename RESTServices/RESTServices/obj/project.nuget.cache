@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QepiA0Q2D7nGH8ZMC5PXyVPmYX9A1iKzALp9fbk5IguziLZcuv7/WUONrhdQBrFvBVN67dRi7ON3isrgQ5SXmw==",
+  "dgSpecHash": "2rKwO7OIaJoe06j6ixsreH9f9s3kMpBvj8e1pKVU4Zh6pCFnQnvsMEbsw4dXK9WcEZ4hWjLLvGw4epgSeWoCGg==",
   "success": true,
   "projectFilePath": "C:\\IPCA\\3ºAno\\Trabalho 2 ISI\\ISITP2\\RESTServices\\RESTServices\\RESTServices.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\oleks\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.7.1\\microsoft.identitymodel.protocols.openidconnect.6.7.1.nupkg.sha512",
     "C:\\Users\\oleks\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.7.1\\microsoft.identitymodel.tokens.6.7.1.nupkg.sha512",
     "C:\\Users\\oleks\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\oleks\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\oleks\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
     "C:\\Users\\oleks\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
     "C:\\Users\\oleks\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
