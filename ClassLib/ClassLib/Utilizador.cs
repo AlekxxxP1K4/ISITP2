@@ -8,9 +8,9 @@ namespace Biblioteca
     {
         private int iduser;
         private string username;
-        private int password;
+        private string password;
         private string email;
-        private byte estado;
+        private string estado;
         private byte estadosessao;
         private int pessoa_idpessoa;
 
@@ -21,20 +21,20 @@ namespace Biblioteca
         {
             iduser = -1;
             username = "Ambrosio";
-            password = 123;
+            password = "123";
             email = "abrosio2000@gmail.com";
-            estado = (byte)State.Ativo;
+            estado = "Ativo";
             estadosessao = (byte)Sessao.Fechada;
             pessoa_idpessoa = -1;
         }
 
-        public Utilizador(string user, int pw, string email)
+        public Utilizador(string user, string pw, string email)
         {
             iduser = -1;
             username = user;
             password = pw;
             this.email = email;
-            estado = (byte)State.Ativo;
+            estado = "Ativo";
             estadosessao = (byte)Sessao.Fechada;
             pessoa_idpessoa = -1;
         }
@@ -65,7 +65,7 @@ namespace Biblioteca
         {
             get { return username; }
         }
-        public int Password
+        public string Password
         {
             get { return password; }
         }
@@ -73,7 +73,7 @@ namespace Biblioteca
         {
             get { return email; }
         }
-        public byte Estado
+        public string Estado
         {
             get { return estado; }
             set { estado = value; }

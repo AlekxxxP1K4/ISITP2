@@ -4,11 +4,6 @@ using System.Text;
 
 namespace Biblioteca
 {
-    enum State
-    {
-        Inativo,
-        Ativo
-    }
     enum Sessao
     {
         Fechada,

@@ -43,21 +43,21 @@ public class GerirDB : System.Web.Services.WebService {
         {
             conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostGreConnectionString"].ConnectionString);
             conn.Open();
-            sql = @"";
+            sql = @"select * from Insert_Utente(:$1,$2,$3,$4,$5,$6,$7,$8)";
             cmd = new NpgsqlCommand(sql, conn);
-            //cmd.Parameters.AddWithValue("parameter", parametervalue);
+            cmd.Parameters.AddWithValue("$1", u.Username);
+            cmd.Parameters.AddWithValue("$8", u.Password);
+            cmd.Parameters.AddWithValue("$4", u.Email);
+            cmd.Parameters.AddWithValue("$2", p.Nome);
+            cmd.Parameters.AddWithValue("$6", p.Telefone);
+            cmd.Parameters.AddWithValue("$3", p.Nif);
+            cmd.Parameters.AddWithValue("$5", p.Morada);
+            cmd.Parameters.AddWithValue("$7", p.Data);
 
-            int result = (int)cmd.ExecuteScalar();
+            cmd.ExecuteScalar();
             conn.Close();
 
-            if (result == 1)
-            {
-                return "Done";
-            }
-            else
-            {
-                return("Utilizador ja existe");
-            }
+            return "Done";
 
         }
         catch (Exception exception)
