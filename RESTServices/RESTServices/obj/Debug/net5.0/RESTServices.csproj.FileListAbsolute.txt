@@ -36,3 +36,4 @@ C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\RESTServices\RESTServices\obj\Debug\net5.0\
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\RESTServices\RESTServices\obj\Debug\net5.0\RESTServices.pdb
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\RESTServices\RESTServices\obj\Debug\net5.0\RESTServices.genruntimeconfig.cache
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\RESTServices\RESTServices\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\RESTServices\RESTServices\bin\Debug\net5.0\Npgsql.dll
