@@ -77,5 +77,53 @@ namespace RESTServices.Controllers
         }
 
         //verifica se o nif e email esta na tabela
+
+        [HttpGet("Verifica NIF")]
+        public int CheckNIF(int nif)
+        {
+            try
+            {
+                conn.Open();
+                sql = @"select * from pessoa where nif = :_nif";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("_nif", nif);
+
+                int result = (int)cmd.ExecuteScalar();
+
+                conn.Close();
+
+                return result;
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return -3;
+                throw;
+            }
+        }
+
+        [HttpGet("Verifica e-mail")]
+        public int CheckEmail(string email)
+        {
+            try
+            {
+                conn.Open();
+                sql = @"select * from utilizador where email = :_email";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("_email", email);
+
+                int result = (int)cmd.ExecuteScalar();
+
+                conn.Close();
+
+                return result;
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return -3;
+                throw;
+            }
+        }
     }
 }
