@@ -51,5 +51,31 @@ namespace RESTServices.Controllers
                 throw;
             }
         }
+
+        [HttpGet("Verifica roles")]
+        public int GetRoles(int id)
+        {
+            try
+            {
+                conn.Open();
+                sql = @"select role_idrole from userroles where utilizador_iduser = :_id";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("_id", id);
+
+                int result = (int)cmd.ExecuteScalar();
+
+                conn.Close();
+
+                return result;
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return -3;
+                throw;
+            }
+        }
+
+        //verifica se o nif e email esta na tabela
     }
 }
