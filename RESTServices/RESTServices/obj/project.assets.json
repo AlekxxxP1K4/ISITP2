@@ -698,19 +698,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Rafael\\.nuget\\packages\\": {}
+    "C:\\Users\\oleks\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\3º ano\\1º Semestre\\ISI\\TP2\\ISITP2\\RESTServices\\RESTServices\\RESTServices.csproj",
+      "projectUniqueName": "C:\\IPCA\\3ºAno\\Trabalho 2 ISI\\ISITP2\\RESTServices\\RESTServices\\RESTServices.csproj",
       "projectName": "RESTServices",
-      "projectPath": "G:\\3º ano\\1º Semestre\\ISI\\TP2\\ISITP2\\RESTServices\\RESTServices\\RESTServices.csproj",
-      "packagesPath": "C:\\Users\\Rafael\\.nuget\\packages\\",
-      "outputPath": "G:\\3º ano\\1º Semestre\\ISI\\TP2\\ISITP2\\RESTServices\\RESTServices\\obj\\",
+      "projectPath": "C:\\IPCA\\3ºAno\\Trabalho 2 ISI\\ISITP2\\RESTServices\\RESTServices\\RESTServices.csproj",
+      "packagesPath": "C:\\Users\\oleks\\.nuget\\packages\\",
+      "outputPath": "C:\\IPCA\\3ºAno\\Trabalho 2 ISI\\ISITP2\\RESTServices\\RESTServices\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Rafael\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\oleks\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -781,7 +785,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
