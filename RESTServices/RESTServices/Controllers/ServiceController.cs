@@ -18,7 +18,7 @@ namespace RESTServices.Controllers
     public class ServiceController:ControllerBase
     {
 
-        [HttpGet("verificaNifeEmail")]
+        [HttpGet("verificaNifeEmail/{nif}&{email}")]
         public bool GetNifEmail(string nif,string email)
         {
             #region verifica Nif

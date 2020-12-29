@@ -33,6 +33,27 @@ $$
 language plpgsql;
 
 
+create or replace function consulta_info(_id int)
+returns table
+(
+	_dataconsulta timestamp without time zone,
+	_descricao character varying,
+	_estado int,
+	_idtipoconvencao int,
+	_pessoa_idutente int,
+	_pessoa_idprofsaude int,
+	_tipoconsulta_idtipo int,
+	_local_idlocal int
+)as
+$$
+begin
+	return query
+	select dataconsulta,descricao,estado,idtipoconvencao,pessoa_idutente,pessoa_idprofsaude,tipoconsulta_idtipo,local_idlocal from Consulta where idconsulta=_id order by idconsulta;
+end
+$$
+language plpgsql
+
+
 
 
 Call Insert_Utente('pedrogomes0008','José Pedro Gomes da Silva', 253372607,

@@ -27,7 +27,7 @@ namespace RESTServices.Controllers
             conn = new NpgsqlConnection(connStr);
         }
 
-        [HttpGet("login")]
+        [HttpGet("login/{user}&{pw}")]
         public int GetLogin(string user, string pw)
         {
             try
@@ -52,7 +52,7 @@ namespace RESTServices.Controllers
             }
         }
 
-        [HttpGet("role")]
+        [HttpGet("role/{id}")]
         public int GetRoles(int id)
         {
             try
@@ -78,7 +78,7 @@ namespace RESTServices.Controllers
 
         //verifica se o nif e email esta na tabela
 
-        [HttpGet("nif")]
+        [HttpGet("nif/{nif}")]
         public int CheckNIF(int nif)
         {
             try
@@ -102,7 +102,7 @@ namespace RESTServices.Controllers
             }
         }
 
-        [HttpGet("email")]
+        [HttpGet("email/{email}")]
         public int CheckEmail(string email)
         {
             try
