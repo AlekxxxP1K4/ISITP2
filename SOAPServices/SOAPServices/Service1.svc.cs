@@ -5,9 +5,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using Biblioteca;
 using Npgsql;
 using System.Configuration;
+using SOAPServices.Model;
 
 namespace SOAPServices
 {

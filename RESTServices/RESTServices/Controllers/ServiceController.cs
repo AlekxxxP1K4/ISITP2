@@ -13,6 +13,8 @@ using System.Text.RegularExpressions;
 
 namespace RESTServices.Controllers
 {
+    [ApiController]
+    [Route("/service")]
     public class ServiceController:ControllerBase
     {
 

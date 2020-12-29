@@ -11,9 +11,6 @@ C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\SOAPServices\SOAPServices\bin\System.Text.E
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\SOAPServices\SOAPServices\bin\System.Text.Json.dll
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\SOAPServices\SOAPServices\bin\System.Threading.Tasks.Extensions.dll
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\SOAPServices\SOAPServices\bin\System.ValueTuple.dll
-C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\SOAPServices\SOAPServices\bin\WcfServiceLib.dll
-C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\SOAPServices\SOAPServices\bin\WcfServiceLib.pdb
-C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\SOAPServices\SOAPServices\bin\WcfServiceLib.dll.config
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\SOAPServices\SOAPServices\bin\Microsoft.Bcl.AsyncInterfaces.xml
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\SOAPServices\SOAPServices\bin\Npgsql.pdb
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\SOAPServices\SOAPServices\bin\Npgsql.xml
