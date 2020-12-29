@@ -84,7 +84,7 @@ namespace RESTServices.Controllers
             try
             {
                 conn.Open();
-                sql = @"select * from pessoa where nif = :_nif";
+                sql = @"select count(*) from pessoa where nif = :_nif";
                 cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("_nif", nif);
 
@@ -108,7 +108,7 @@ namespace RESTServices.Controllers
             try
             {
                 conn.Open();
-                sql = @"select * from utilizador where email = :_email";
+                sql = @"select count(*) from utilizador where email = :_email";
                 cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("_email", email);
 
