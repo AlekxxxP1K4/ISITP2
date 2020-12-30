@@ -66,6 +66,8 @@ Insert Into consulta(idconsulta, dataconsulta, descricao, estado,idtipoconvencao
                 values (aux_idconsulta,_dataconsulta,_descricao,1,_idtipoconvencao,_pessoa_idutente,_pessoa_idprofsaude,_tipoconsulta_idtipo,_local_idlocal);
 Insert Into agenda(utilizador_iduser, data, hora, local, idconsulta)
                 values (_pessoa_idutente, _dataconsulta, _hora,_local ,aux_idconsulta);
+Insert Into agenda(utilizador_iduser, data, hora, local, idconsulta)
+                values (pessoa_idprofsaude, _dataconsulta, _hora,_local ,aux_idconsulta);
 Insert Into consultalogs(idpessoa,logdata,newestado,consulta_idconsulta)
 				values (_pessoa_idutente,_datamarcacao,1,aux_idconsulta);
 Commit;
@@ -78,6 +80,8 @@ select * from utilizador
 select * from consulta
 select * from agenda
 select * from local
+select * from role
+select * from userroles
 
 select * from consultalogs
 

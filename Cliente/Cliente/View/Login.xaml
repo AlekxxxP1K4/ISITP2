@@ -1,0 +1,17 @@
+﻿<Window x:Class="Cliente.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cliente"
+        mc:Ignorable="d"
+        Title="Login" Height="357.549" Width="370.05">
+    <Grid>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="88,204,0,0" VerticalAlignment="Top" Width="75" FontFamily="Segoe UI Symbol" Click="Button_Click"/>
+        <TextBox x:Name="User" HorizontalAlignment="Left" Height="20" Margin="130,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="178"/>
+        <PasswordBox x:Name="Pass" HorizontalAlignment="Left" Margin="130,103,0,0" VerticalAlignment="Top" Width="178" Height="20"/>
+        <Label Content="Utilizador" HorizontalAlignment="Left" Margin="43,60,0,0" VerticalAlignment="Top"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="43,97,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
