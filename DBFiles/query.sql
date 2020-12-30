@@ -36,7 +36,7 @@ language plpgsql;
 create or replace function consulta_info(_id int)
 returns table
 (
-	_dataconsulta timestamp without time zone,
+	_dataconsulta date,
 	_descricao character varying,
 	_estado int,
 	_idtipoconvencao int,
@@ -53,8 +53,33 @@ end
 $$
 language plpgsql
 
+call marca_consulta ('01-02-2021','Tentativa',1,9,5,1,1,'29-12-2020','29-12-2020')
+create or replace procedure Marca_Consulta(_dataconsulta timestamp without time zone,_descricao character varying,_idtipoconvencao int,_pessoa_idutente int,_pessoa_idprofsaude int,_tipoconsulta_idtipo int,_local_idlocal int,_datamarcacao timestamp without time zone,_hora timestamp without time zone )
+Language 'plpgsql'
+AS $$
+Declare 
+    aux_idconsulta int := nextval('consulta_idconsulta_seq'::regclass);
+	_local character varying := (select morada from local where idlocal=_local_idlocal);
+Begin
 
+Insert Into consulta(idconsulta, dataconsulta, descricao, estado,idtipoconvencao,pessoa_idutente ,pessoa_idprofsaude,tipoconsulta_idtipo,local_idlocal)
+                values (aux_idconsulta,_dataconsulta,_descricao,1,_idtipoconvencao,_pessoa_idutente,_pessoa_idprofsaude,_tipoconsulta_idtipo,_local_idlocal);
+Insert Into agenda(utilizador_iduser, data, hora, local, idconsulta)
+                values (_pessoa_idutente, _dataconsulta, _hora,_local ,aux_idconsulta);
+Insert Into consultalogs(idpessoa,logdata,newestado,consulta_idconsulta)
+				values (_pessoa_idutente,_datamarcacao,1,aux_idconsulta);
+Commit;
 
+End;
+$$;
+
+select * from pessoa
+select * from utilizador
+select * from consulta
+select * from agenda
+select * from local
+
+select * from consultalogs
 
 Call Insert_Utente('pedrogomes0008','José Pedro Gomes da Silva', 253372607,
 				   'pedrogomes0008@@gmail.com', 'Trofa', '918860913', '08-05-1994 00:00:00', '123');

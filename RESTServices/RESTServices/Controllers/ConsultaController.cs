@@ -30,33 +30,35 @@ namespace RESTServices.Controllers
         }
 
         [HttpPost("registar")]
-        public bool RegistaConsulta(Consulta c)
+        public string RegistaConsulta(Consulta c)
         {
-            bool result=false;
-
+            //bool result=false;
+            DateTime day = DateTime.Now;
             try
             {
                 conn.Open();
-                //sql = @"select * from Login_User(:_username,:_password)";
+                sql = @"call marca_consulta(@_dataconsulta,@_descricao ,@_idtipoconvencao ,@_pessoa_idutente,@_pessoa_idprofsaude,@_tipoconsulta_idtipo ,@_local_idlocal,@_datamarcacao ,@_hora)";
                 cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("_dataconsula", c.dataconsulta);
+                cmd.Parameters.AddWithValue("_dataconsulta", c.dataconsulta);
                 cmd.Parameters.AddWithValue("_descricao", c.descricao);
                 cmd.Parameters.AddWithValue("_idtipoconvencao", c.idtipoconvencao);
                 cmd.Parameters.AddWithValue("_pessoa_idutente", c.pessoa_idutente);
                 cmd.Parameters.AddWithValue("_pessoa_idprofsaude", c.pessoa_idprofsaude);
                 cmd.Parameters.AddWithValue("_tipoconsulta_idtipo", c.tipoconsulta_idtipo);
                 cmd.Parameters.AddWithValue("_local_idlocal", c.local_idlocal);
+                cmd.Parameters.AddWithValue("_datamarcacao", day.Date);
+                cmd.Parameters.AddWithValue("_hora", c.dataconsulta);
 
                 cmd.ExecuteScalar();
                 conn.Close();
-                result = true;
+                string result = "true";
                 return result;
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+                return ex.Message;
                 throw;
             }
         }
