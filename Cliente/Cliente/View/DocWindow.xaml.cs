@@ -10,28 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Cliente.Controller;
 
 namespace Cliente.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DocWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DocWindow : Window
     {
-        public MainWindow()
-        {
-            
-            InitializeComponent();
-            lbl_UserName.Content = LoginController.namelogedin(14);
-        }
-        public MainWindow(int id)
+        public DocWindow(int id)
         {
             InitializeComponent();
-            lbl_UserName.Content=LoginController.namelogedin(id);
-            
         }
     }
 }

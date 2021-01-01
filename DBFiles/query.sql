@@ -1,4 +1,4 @@
-create or replace procedure Insert_Utente(_user character varying,_name character varying,_nif numeric,_email character varying,_morada character varying, _tele character varying,_data timestamp without time zone, _pass character varying)
+create or replace procedure Insert_Utente(_user character varying,_name character varying,_nif numeric,_email character varying,_morada character varying, _tele character varying,_data timestamp without time zone, _pass character varying,_role int)
 Language 'plpgsql'
 AS $$
 Declare 
@@ -10,7 +10,7 @@ Insert Into pessoa(idpessoa, nome, telefone, nif, morada, datanascimento, pessoa
                 values (aux_idPessoa, _name, _tele, _nif, _morada, _data,NULL);
 Insert Into utilizador(iduser, username, password, email, estado, estadosessao, pessoa_idpessoa)
                 values (aux_idUser, _user, _pass, _email, 'ativo', FALSE , aux_idPessoa);
-Insert into userroles(role_idrole, utilizador_iduser) values (1, aux_idUser);
+Insert into userroles(role_idrole, utilizador_iduser) values (_role, aux_idUser);
 Commit;
 
 End;
@@ -32,6 +32,8 @@ end
 $$
 language plpgsql;
 
+select * from consulta
+select * from consulta_info(1)
 
 create or replace function consulta_info(_id int)
 returns table

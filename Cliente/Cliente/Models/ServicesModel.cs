@@ -141,8 +141,16 @@ namespace Cliente.Models
 
         static public int CheckUserinTable(string user)
         {
-            SOAPServices.Service1Client service = new SOAPServices.Service1Client();
-            return service.VerificarUserinTable(user);
+            try
+            {
+                SOAPServices.Service1Client service = new SOAPServices.Service1Client();
+                return service.VerificarUserinTable(user);
+            }
+            catch (Exception)
+            {
+                return -1;
+                throw;
+            }
         }
     }
 }

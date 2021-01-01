@@ -28,57 +28,69 @@ namespace Cliente.View
         {
             InitializeComponent();
             lblpw.Visibility = Visibility.Hidden;
+            lblUser.Visibility = Visibility.Hidden;
+            lblNif.Visibility = Visibility.Hidden;
+            lblEmail.Visibility = Visibility.Hidden;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int CheckNif = RegistarController.CheckifNifExist(int.Parse(Nif.Text));
-            int CheckEmail = RegistarController.CheckifEmailExist(Email.Text);
-            int CheckUser = RegistarController.CheckifUserExists(Utilizador.Text);
+            int CheckNif;//= RegistarController.CheckifNifExist(int.Parse(Nif.Text));
+            int CheckEmail; //= RegistarController.CheckifEmailExist(Email.Text);
+            int CheckUser; //= RegistarController.CheckifUserExists(Utilizador.Text);
             if (Email.Text == "" || Utilizador.Text == "" || Nome.Text == "" || Nif.Text == "" || Morada.Text == "" || dataNascimento.Text == "" || Password.Password == "" || Password_Copy.Password == "")
             {
                 lblpw.Visibility = Visibility.Hidden;
                 MessageBox.Show("Falta Preencher");
             }
-            else if (CheckUser == 1) //utilizador existe?
+            else
             {
-                MessageBox.Show("Utilizador Existe");
-            }
-            else if (CheckNif == 1) //nif exite?
-            {
-                MessageBox.Show("NIF Existe");
-            }
-            else if (CheckEmail == 1) //email exite?
-            {
-                MessageBox.Show("Email Existe");
-            }
-            else if (Password.Password != Password_Copy.Password)
-            {
-                lblpw.Visibility = Visibility.Visible;
-            }
-            else if (RegistarController.CheckEmailandNif(Email.Text, int.Parse(Nif.Text)) == true && CheckNif==0 && CheckUser==0 && CheckEmail==0)
-            {
-                DateTime d = DateTime.Parse(dataNascimento.Text);
+                CheckNif = RegistarController.CheckifNifExist(int.Parse(Nif.Text));
+                CheckEmail = RegistarController.CheckifEmailExist(Email.Text);
+                CheckUser = RegistarController.CheckifUserExists(Utilizador.Text);
 
-                lblpw.Visibility = Visibility.Hidden;
-                string i = RegistarController.registar(Utilizador.Text, Nome.Text, int.Parse(Nif.Text), Email.Text, Morada.Text, Contacto.Text, d, Password.Password);
-                if (i == "Done")
+                if (CheckUser == 1) //utilizador existe?
                 {
-                    MessageBox.Show("Registado");
-                    this.Hide();
-                    var Login = new Login();
-                    Login.Closed += (s, args) => this.Close();
-                    Login.Show();
+                    lblUser.Visibility = Visibility.Visible;
+                    //MessageBox.Show("Utilizador Existe");
+                }
+                else if (CheckNif == 1) //nif exite?
+                {
+                    lblNif.Visibility = Visibility.Visible;
+                    //MessageBox.Show("NIF Existe");
+                }
+                else if (CheckEmail == 1) //email exite?
+                {
+                    lblEmail.Visibility = Visibility.Visible;
+                    //MessageBox.Show("Email Existe");
+                }
+                else if (Password.Password != Password_Copy.Password)
+                {
+                    lblpw.Visibility = Visibility.Visible;
+                }
+                else if (RegistarController.CheckEmailandNif(Email.Text, int.Parse(Nif.Text)) == true && CheckNif == 0 && CheckUser == 0 && CheckEmail == 0)
+                {
+                    DateTime d = DateTime.Parse(dataNascimento.Text);
+
+                    lblpw.Visibility = Visibility.Hidden;
+                    string i = RegistarController.registar(Utilizador.Text, Nome.Text, int.Parse(Nif.Text), Email.Text, Morada.Text, Contacto.Text, d, Password.Password,1);
+                    if (i == "Done")
+                    {
+                        MessageBox.Show("Registado");
+                        this.Hide();
+                        var Login = new Login();
+                        Login.Closed += (s, args) => this.Close();
+                        Login.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Someting Wrong");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Someting Wrong");
+                    MessageBox.Show("Email ou NIF invalido");
                 }
             }
-            else
-            {
-                MessageBox.Show("Email ou NIF invalido");
-            }
-            
         }
 
         #region Focus
@@ -157,6 +169,12 @@ namespace Cliente.View
             }
         }
 
-       
+        private void ButtonVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var Login = new Login();
+            Login.Closed += (s, args) => this.Close();
+            Login.Show();
+        }
     }
 }

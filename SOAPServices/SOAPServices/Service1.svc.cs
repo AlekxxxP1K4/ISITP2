@@ -24,13 +24,13 @@ namespace SOAPServices
         /// <param name="u">Utilizador</param>
         /// <param name="p">Pessoa</param>
         /// <returns></returns>
-        public string RegistrarUser(Utilizador u, Pessoa p)
+        public string RegistrarUser(Utilizador u, Pessoa p,int role)
         {
             try
             {
                 conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostGreConnectionString"].ConnectionString);
                 conn.Open();
-                sql = @"call Insert_Utente(:_user,:_name,:_nif,:_email,:_morada,:_tele,:_data,:_pass)";
+                sql = @"call Insert_Utente(@_user,@_name,@_nif,@_email,@_morada,@_tele,@_data,@_pass,@_role)";
                 cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("_user", u.Username);
                 cmd.Parameters.AddWithValue("_pass", u.Password);
@@ -40,6 +40,7 @@ namespace SOAPServices
                 cmd.Parameters.AddWithValue("_nif", p.Nif);
                 cmd.Parameters.AddWithValue("_morada", p.Morada);
                 cmd.Parameters.AddWithValue("_data", p.Data);
+                cmd.Parameters.AddWithValue("_role", role);
 
                 cmd.ExecuteScalar();
                 conn.Close();
@@ -81,6 +82,31 @@ namespace SOAPServices
             {
                 conn.Close();
                 return -1;
+                throw;
+            }
+        }
+
+
+        public string nameLogedin(int id)
+        {
+            try
+            {
+                conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostGreConnectionString"].ConnectionString);
+                conn.Open();
+                sql = @"select nome from pessoa where idpessoa = @_id";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("_id", id);
+
+                string result = cmd.ExecuteScalar().ToString();
+
+                conn.Close();
+
+                return result;
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return "-1";
                 throw;
             }
         }

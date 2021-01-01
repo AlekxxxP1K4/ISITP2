@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/logo.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/img/consultas.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/img/contacorrente.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/img/documentos.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/img/marcar.png")]
 
 

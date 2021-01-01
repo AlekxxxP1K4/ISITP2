@@ -9,24 +9,30 @@ namespace Cliente.Controller
 {
     class RegistarController
     {
-        static public string registar(string user,string nome,int nif,string email,string morada,string contacto,DateTime dataNascimento,string password)
+        static public string registar(string user,string nome,int nif,string email,string morada,string contacto,DateTime dataNascimento,string password,int role)
         {
-            SOAPServices.Pessoa p = new SOAPServices.Pessoa();
-            SOAPServices.Utilizador u = new SOAPServices.Utilizador();
+            try
+            {
+                SOAPServices.Pessoa p = new SOAPServices.Pessoa();
+                SOAPServices.Utilizador u = new SOAPServices.Utilizador();
 
-            u.Username = user;
-            u.Password = password;
-            u.Email = email;
-            p.Data = dataNascimento;
-            p.Morada = morada;
-            p.Nif = nif;
-            p.Nome = nome;
-            p.Telefone = contacto;
+                u.Username = user;
+                u.Password = password;
+                u.Email = email;
+                p.Data = dataNascimento;
+                p.Morada = morada;
+                p.Nif = nif;
+                p.Nome = nome;
+                p.Telefone = contacto;
 
-            return RegistarModel.registar(p, u);
+                return RegistarModel.registar(p, u,role);
 
-            
-            
+
+            }catch (Exception ex)
+            {
+                return ex.Message;
+                throw;
+            }
         }
 
         static public bool CheckEmailandNif(string email,int nif)

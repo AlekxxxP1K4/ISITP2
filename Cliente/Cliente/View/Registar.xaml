@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Cliente.View"
         mc:Ignorable="d"
-        Title="Registar" Height="578" Width="462.5">
+        Title="Registar" Height="578" Width="462.5" ResizeMode="CanMinimize">
     <Grid Height="546" VerticalAlignment="Top" HorizontalAlignment="Left" Width="452">
         <TextBox x:Name="Utilizador" HorizontalAlignment="Left" Height="24" Margin="122,84,0,0" TextWrapping="Wrap" Text="Utilizador" VerticalAlignment="Top" Width="219" GotFocus="Utilizador_GotFocus"/>
         <TextBox x:Name="Nome" HorizontalAlignment="Left" Height="24" Margin="122,134,0,0" TextWrapping="Wrap" Text="Nome Completo" VerticalAlignment="Top" Width="219" GotFocus="Nome_GotFocus" PreviewTextInput="Nome_PreviewTextInput"/>
@@ -28,6 +28,10 @@
         <Label Content="Contacto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118,305,0,0" Height="26" Width="68"/>
         <Label Content="Data de Nascimento" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="118,355,0,0" Height="26" Width="123"/>
         <Label x:Name="lblpw" Content="Não Corresponde" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="340,439,0,0" Height="26" Width="112" Background="White" Foreground="Red" IsEnabled="False"/>
+        <Label x:Name="lblUser" Content="Já existe" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,82,0,0" Height="26" Width="54" Background="White" Foreground="Red" IsEnabled="False"/>
+        <Label x:Name="lblNif" Content="Já existe" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,180,0,0" Height="26" Width="54" Background="White" Foreground="Red" IsEnabled="False"/>
+        <Label x:Name="lblEmail" Content="Já existe" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,230,0,0" Height="26" Width="54" Background="White" Foreground="Red" IsEnabled="False"/>
+        <Button x:Name="Voltar" Content="Voltar" HorizontalAlignment="Left" Margin="340,489,0,0" VerticalAlignment="Top" Width="80" Click="ButtonVoltar_Click" Height="26"/>
 
     </Grid>
 </Window>

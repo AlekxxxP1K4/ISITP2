@@ -24,3 +24,5 @@ C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\MainWindow.g
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\MainWindow.baml
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\Registar.g.cs
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\Registar.baml
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\DocWindow.g.cs
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\DocWindow.baml

@@ -284,16 +284,22 @@ namespace Cliente.SOAPServices {
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistrarUser", ReplyAction="http://tempuri.org/IService1/RegistrarUserResponse")]
-        string RegistrarUser(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p);
+        string RegistrarUser(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p, int role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistrarUser", ReplyAction="http://tempuri.org/IService1/RegistrarUserResponse")]
-        System.Threading.Tasks.Task<string> RegistrarUserAsync(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p);
+        System.Threading.Tasks.Task<string> RegistrarUserAsync(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p, int role);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/VerificarUserinTable", ReplyAction="http://tempuri.org/IService1/VerificarUserinTableResponse")]
         int VerificarUserinTable(string user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/VerificarUserinTable", ReplyAction="http://tempuri.org/IService1/VerificarUserinTableResponse")]
         System.Threading.Tasks.Task<int> VerificarUserinTableAsync(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/nameLogedin", ReplyAction="http://tempuri.org/IService1/nameLogedinResponse")]
+        string nameLogedin(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/nameLogedin", ReplyAction="http://tempuri.org/IService1/nameLogedinResponse")]
+        System.Threading.Tasks.Task<string> nameLogedinAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -323,12 +329,12 @@ namespace Cliente.SOAPServices {
                 base(binding, remoteAddress) {
         }
         
-        public string RegistrarUser(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p) {
-            return base.Channel.RegistrarUser(u, p);
+        public string RegistrarUser(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p, int role) {
+            return base.Channel.RegistrarUser(u, p, role);
         }
         
-        public System.Threading.Tasks.Task<string> RegistrarUserAsync(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p) {
-            return base.Channel.RegistrarUserAsync(u, p);
+        public System.Threading.Tasks.Task<string> RegistrarUserAsync(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p, int role) {
+            return base.Channel.RegistrarUserAsync(u, p, role);
         }
         
         public int VerificarUserinTable(string user) {
@@ -337,6 +343,14 @@ namespace Cliente.SOAPServices {
         
         public System.Threading.Tasks.Task<int> VerificarUserinTableAsync(string user) {
             return base.Channel.VerificarUserinTableAsync(user);
+        }
+        
+        public string nameLogedin(int id) {
+            return base.Channel.nameLogedin(id);
+        }
+        
+        public System.Threading.Tasks.Task<string> nameLogedinAsync(int id) {
+            return base.Channel.nameLogedinAsync(id);
         }
     }
 }

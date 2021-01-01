@@ -22,6 +22,11 @@ namespace Cliente.Controller
         {
             return LoginModel.TakeUser(id);
         }
+
+        static public string namelogedin(int id)
+        {
+            return LoginModel.namelogedin(id);
+        }
  
     }
 }

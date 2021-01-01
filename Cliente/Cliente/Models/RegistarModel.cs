@@ -10,11 +10,11 @@ namespace Cliente.Models
     {
 
 
-        static public string registar(SOAPServices.Pessoa p,SOAPServices.Utilizador u)
+        static public string registar(SOAPServices.Pessoa p,SOAPServices.Utilizador u,int role)
         {
             SOAPServices.Service1Client servico = new SOAPServices.Service1Client();
             
-            return servico.RegistrarUser(u,p);
+            return servico.RegistrarUser(u,p,role);
 
         }
 

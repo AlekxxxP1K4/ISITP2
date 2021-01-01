@@ -92,9 +92,16 @@
     <Compile Include="Controller\RegistarController.cs" />
     <Compile Include="Models\RegistarModel.cs" />
     <Compile Include="Models\ServicesModel.cs" />
+    <Compile Include="View\DocWindow.xaml.cs">
+      <DependentUpon>DocWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Registar.xaml.cs">
       <DependentUpon>Registar.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\DocWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

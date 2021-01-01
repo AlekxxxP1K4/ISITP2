@@ -93,5 +93,17 @@ namespace Cliente.Models
             #endregion
             return resposta;
         }
+        static public string namelogedin(int id)
+        {
+            try
+            {
+                SOAPServices.Service1Client servico = new SOAPServices.Service1Client();
+                return servico.nameLogedin(id);
+            }catch(Exception ex)
+            {
+                return ex.Message;
+            }
+            
+        }
     }
 }

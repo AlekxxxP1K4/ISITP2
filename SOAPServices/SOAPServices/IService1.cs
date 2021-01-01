@@ -16,10 +16,13 @@ namespace SOAPServices
     {
 
         [OperationContract]
-        string RegistrarUser(Utilizador u, Pessoa p);
+        string RegistrarUser(Utilizador u, Pessoa p,int role);
 
         [OperationContract]
         int VerificarUserinTable(string user);
+
+        [OperationContract]
+        string nameLogedin(int id);
 
 
     }
