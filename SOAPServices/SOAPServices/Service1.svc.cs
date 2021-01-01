@@ -18,7 +18,12 @@ namespace SOAPServices
         private static NpgsqlConnection conn = new NpgsqlConnection();
         private NpgsqlCommand cmd;
         private string sql = null;
-
+        /// <summary>
+        /// Registar Utilizador na Base de dados
+        /// </summary>
+        /// <param name="u">Utilizador</param>
+        /// <param name="p">Pessoa</param>
+        /// <returns></returns>
         public string RegistrarUser(Utilizador u, Pessoa p)
         {
             try
@@ -49,6 +54,35 @@ namespace SOAPServices
                 throw;
             }
 
+        }
+
+        /// <summary>
+        /// Verifica a existencia de um utilizador com esse nome
+        /// </summary>
+        /// <param name="user">user name</param>
+        /// <returns></returns>
+        public int VerificarUserinTable(string user)
+        {
+            try
+            {
+                conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostGreConnectionString"].ConnectionString);
+                conn.Open();
+                sql = @"select count(*) from utilizador where username = @_username";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("_username", user);
+
+                int result = Convert.ToInt32(cmd.ExecuteScalar());
+
+                conn.Close();
+
+                return result;
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return -1;
+                throw;
+            }
         }
     }
 }

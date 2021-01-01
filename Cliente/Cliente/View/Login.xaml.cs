@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Cliente.Controller;
 
-namespace Cliente
+namespace Cliente.View
 {
     /// <summary>
     /// Interaction logic for Login.xaml
@@ -83,7 +83,10 @@ namespace Cliente
 
         private void ButtonRegistar_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Hide();
+            var Reg = new Registar();
+            Reg.Closed += (s, args) => this.Close();
+            Reg.Show();
         }
     }
 

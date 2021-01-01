@@ -23,7 +23,7 @@ namespace Cliente.Models
             
             try
             {
-                //Weather URL
+                
                 url = "http://localhost:61992/user/login/[USER]&[PW]";
 
                 #region ConstroiURI

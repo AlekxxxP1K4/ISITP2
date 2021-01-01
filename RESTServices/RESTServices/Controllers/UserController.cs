@@ -58,7 +58,7 @@ namespace RESTServices.Controllers
             try
             {
                 conn.Open();
-                sql = @"select role_idrole from userroles where utilizador_iduser = :_id";
+                sql = @"select role_idrole from userroles where utilizador_iduser = @_id";
                 cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("_id", id);
 
@@ -76,54 +76,6 @@ namespace RESTServices.Controllers
             }
         }
 
-        //verifica se o nif e email esta na tabela
-
-        [HttpGet("nif/{nif}")]
-        public int CheckNIF(int nif)
-        {
-            try
-            {
-                conn.Open();
-                sql = @"select count(*) from pessoa where nif = :_nif";
-                cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("_nif", nif);
-
-                int result = (int)cmd.ExecuteScalar();
-
-                conn.Close();
-
-                return result;
-            }
-            catch (Exception)
-            {
-                conn.Close();
-                return -3;
-                throw;
-            }
-        }
-
-        [HttpGet("email/{email}")]
-        public int CheckEmail(string email)
-        {
-            try
-            {
-                conn.Open();
-                sql = @"select count(*) from utilizador where email = :_email";
-                cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("_email", email);
-
-                int result = (int)cmd.ExecuteScalar();
-
-                conn.Close();
-
-                return result;
-            }
-            catch (Exception)
-            {
-                conn.Close();
-                return -3;
-                throw;
-            }
-        }
+        
     }
 }

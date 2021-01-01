@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Cliente.Models;
 
 namespace Cliente.Controller
 {
     class RegistarController
     {
-        static public int registar(string user,string nome,int nif,string email,string morada,string contacto,DateTime dataNascimento,string password)
+        static public string registar(string user,string nome,int nif,string email,string morada,string contacto,DateTime dataNascimento,string password)
         {
             SOAPServices.Pessoa p = new SOAPServices.Pessoa();
             SOAPServices.Utilizador u = new SOAPServices.Utilizador();
@@ -21,7 +22,31 @@ namespace Cliente.Controller
             p.Nif = nif;
             p.Nome = nome;
             p.Telefone = contacto;
-            return 1;
+
+            return RegistarModel.registar(p, u);
+
+            
+            
+        }
+
+        static public bool CheckEmailandNif(string email,int nif)
+        {
+            return ServicesModel.checkEmailandNif(email, nif);
+        }
+
+        static public int CheckifEmailExist(string email)
+        {
+            return ServicesModel.CheckEmailinTable(email);
+        }
+
+        static public int CheckifNifExist(int nif)
+        {
+            return ServicesModel.CheckNIFinTable(nif);
+        }
+
+        static public int CheckifUserExists(string user)
+        {
+            return ServicesModel.CheckUserinTable(user);
         }
     }
 }

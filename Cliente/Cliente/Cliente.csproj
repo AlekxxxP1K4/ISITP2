@@ -91,6 +91,7 @@
     </Compile>
     <Compile Include="Controller\RegistarController.cs" />
     <Compile Include="Models\RegistarModel.cs" />
+    <Compile Include="Models\ServicesModel.cs" />
     <Compile Include="View\Registar.xaml.cs">
       <DependentUpon>Registar.xaml</DependentUpon>
     </Compile>

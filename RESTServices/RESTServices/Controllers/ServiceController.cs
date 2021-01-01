@@ -10,6 +10,8 @@ using System.Web;
 using System.IO;
 using RESTServices.Models;
 using System.Text.RegularExpressions;
+using Npgsql;
+using Microsoft.Extensions.Configuration;
 
 namespace RESTServices.Controllers
 {
@@ -17,6 +19,20 @@ namespace RESTServices.Controllers
     [Route("/service")]
     public class ServiceController:ControllerBase
     {
+        private readonly IConfiguration _connfiguration;
+
+        private readonly string connStr;
+        private NpgsqlConnection conn;
+        private NpgsqlCommand cmd;
+        string sql;
+
+
+        public ServiceController(IConfiguration configuration)
+        {
+            _connfiguration = configuration;
+            connStr = _connfiguration.GetConnectionString("PostGreConnectionString");
+            conn = new NpgsqlConnection(connStr);
+        }
 
         [HttpGet("verificaNifeEmail/{nif}&{email}")]
         public bool GetNifEmail(string nif,string email)
@@ -77,6 +93,56 @@ namespace RESTServices.Controllers
            
         }
 
+
+        //verifica se o nif e email esta na tabela
+
+        [HttpGet("nif/{nif}")]
+        public int CheckNIF(int nif)
+        {
+            try
+            {
+                conn.Open();
+                sql = @"select count(*) from pessoa where nif = @_nif";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("_nif", Convert.ToInt64(nif));
+
+                int result = Convert.ToInt32(cmd.ExecuteScalar());
+
+                conn.Close();
+
+                return result;
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return -1;
+                throw;
+            }
+        }
+
+        [HttpGet("email/{email}")]
+        public int CheckEmail(string email)
+        {
+            try
+            {
+                conn.Open();
+                sql = @"select count(*) from utilizador where email = @_email";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("_email", email);
+
+                int result = Convert.ToInt32(cmd.ExecuteScalar());
+
+                conn.Close();
+
+                return result;
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return -1;
+                throw;
+            }
+        }
 
 
     }

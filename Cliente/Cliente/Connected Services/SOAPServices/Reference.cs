@@ -288,6 +288,12 @@ namespace Cliente.SOAPServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistrarUser", ReplyAction="http://tempuri.org/IService1/RegistrarUserResponse")]
         System.Threading.Tasks.Task<string> RegistrarUserAsync(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/VerificarUserinTable", ReplyAction="http://tempuri.org/IService1/VerificarUserinTableResponse")]
+        int VerificarUserinTable(string user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/VerificarUserinTable", ReplyAction="http://tempuri.org/IService1/VerificarUserinTableResponse")]
+        System.Threading.Tasks.Task<int> VerificarUserinTableAsync(string user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -323,6 +329,14 @@ namespace Cliente.SOAPServices {
         
         public System.Threading.Tasks.Task<string> RegistrarUserAsync(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p) {
             return base.Channel.RegistrarUserAsync(u, p);
+        }
+        
+        public int VerificarUserinTable(string user) {
+            return base.Channel.VerificarUserinTable(user);
+        }
+        
+        public System.Threading.Tasks.Task<int> VerificarUserinTableAsync(string user) {
+            return base.Channel.VerificarUserinTableAsync(user);
         }
     }
 }

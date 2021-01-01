@@ -18,6 +18,9 @@ namespace SOAPServices
         [OperationContract]
         string RegistrarUser(Utilizador u, Pessoa p);
 
+        [OperationContract]
+        int VerificarUserinTable(string user);
+
 
     }
 
