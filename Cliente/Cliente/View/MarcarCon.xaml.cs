@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Cliente.Controller;
+
 
 namespace Cliente.View
 {
@@ -31,8 +33,12 @@ namespace Cliente.View
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxConv.Items.Add("ADSE");
-            ComboBoxConv.Items.Add("Convenção");
+            List<string> conv = new List<string>();
+
+            foreach (string val in conv)
+            {
+                ComboBoxConv.Items.Add(val);
+            }
         }
 
         private void ComboBoxLoc_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -46,6 +52,14 @@ namespace Cliente.View
         {
             ComboBoxProf.Items.Add("Quim");
             ComboBoxProf.Items.Add("Alberto");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var Main = new MainWindow();
+            Main.Closed += (s, args) => this.Close();
+            Main.Show();
         }
     }
 }

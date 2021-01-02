@@ -18,7 +18,7 @@
         <Label Grid.ColumnSpan="2" Content="Convenção(Opcional)" HorizontalAlignment="Left" Margin="90,232,0,0" VerticalAlignment="Top" Width="127"/>
         <Label Grid.ColumnSpan="2" Content="Local" HorizontalAlignment="Left" Margin="291,232,0,0" VerticalAlignment="Top" Width="38"/>
         <Label Grid.ColumnSpan="2" Content="Profisional de saúde" HorizontalAlignment="Left" Margin="494,232,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button Content="Anterior" Grid.Column="1" HorizontalAlignment="Left" Margin="27,342,0,0" VerticalAlignment="Top" Width="95" Height="25" Background="#FF456850"/>
+        <Button Content="Anterior" Grid.Column="1" HorizontalAlignment="Left" Margin="27,342,0,0" VerticalAlignment="Top" Width="95" Height="25" Background="#FF456850" Click="Button_Click"/>
         <Rectangle Grid.ColumnSpan="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="4" Margin="27,333,0,0" Stroke="Black" VerticalAlignment="Top" Width="733"/>
         <Rectangle Grid.ColumnSpan="2" Fill="#FF456850" HorizontalAlignment="Left" Height="22" Margin="85,169,0,0" Stroke="Black" VerticalAlignment="Top" Width="189"/>
         <Rectangle Grid.ColumnSpan="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="22" Margin="494,169,0,0" Stroke="Black" VerticalAlignment="Top" Width="189"/>
