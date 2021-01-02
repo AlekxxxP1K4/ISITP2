@@ -86,6 +86,31 @@ $$
 language plpgsql
 
 
+create or replace function consultas(_id_pessoa int)
+returns table
+(
+	_dataconsulta date,
+	_descricao character varying,
+	_estado int,
+	_tipoconvencao character varying,
+	_pessoa_profsaude character varying,
+	_tipoconsulta_tipo character varying,
+	_local_local character varying
+)as
+$$
+begin
+	return query
+	select c.dataconsulta,c.descricao,c.estado,con.tipo,p.nome,t.tipo,l.morada
+	from consulta c LEFT OUTER JOIN  tipoconvencao con on (c.idtipoconvencao=con.idtipoconv)
+					LEFT OUTER JOIN pessoa p on (c.pessoa_idprofsaude=p.idpessoa)
+					LEFT OUTER JOIN tipoconsulta t on (t.idtipo = c.tipoconsulta_idtipo)
+					LEFT OUTER JOIN local l on (l.idlocal=c.local_idlocal) 
+					where c.pessoa_idutente=_id_pessoa
+					order by idconsulta;
+end
+$$
+language plpgsql
+
 
 
 
