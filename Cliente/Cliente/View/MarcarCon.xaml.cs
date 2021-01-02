@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,18 @@ namespace Cliente.View
     /// </summary>
     public partial class MarcarCon : Window
     {
+        DataTable dt = new DataTable();
         public MarcarCon()
         {
             InitializeComponent();
+            ComboBoxLoc.Items.Add("Gabinete 1");
+            ComboBoxLoc.Items.Add("Gabinete 2");
+            ComboBoxLoc.Items.Add("Domícilio");
+            ComboBoxProf.Items.Add("Quim");
+            ComboBoxProf.Items.Add("Alberto");
+            MessageBox.Show(ConsultaController.TakeConvencao());
+            
+            
         }
 
         private void ComboBoxItem_Selected(object sender, RoutedEventArgs e)
@@ -31,28 +41,7 @@ namespace Cliente.View
 
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            List<string> conv = new List<string>();
-
-            foreach (string val in conv)
-            {
-                ComboBoxConv.Items.Add(val);
-            }
-        }
-
-        private void ComboBoxLoc_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBoxLoc.Items.Add("Gabinete 1");
-            ComboBoxLoc.Items.Add("Gabinete 2");
-            ComboBoxLoc.Items.Add("Domícilio");
-        }
-
-        private void ComboBoxProf_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBoxProf.Items.Add("Quim");
-            ComboBoxProf.Items.Add("Alberto");
-        }
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -61,5 +50,7 @@ namespace Cliente.View
             Main.Closed += (s, args) => this.Close();
             Main.Show();
         }
+
+       
     }
 }

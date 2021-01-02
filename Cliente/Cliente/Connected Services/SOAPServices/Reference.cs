@@ -300,6 +300,18 @@ namespace Cliente.SOAPServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/nameLogedin", ReplyAction="http://tempuri.org/IService1/nameLogedinResponse")]
         System.Threading.Tasks.Task<string> nameLogedinAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConsultasUtente", ReplyAction="http://tempuri.org/IService1/ConsultasUtenteResponse")]
+        System.Data.DataTable ConsultasUtente(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConsultasUtente", ReplyAction="http://tempuri.org/IService1/ConsultasUtenteResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ConsultasUtenteAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConvencaoInfo", ReplyAction="http://tempuri.org/IService1/ConvencaoInfoResponse")]
+        System.Data.DataTable ConvencaoInfo();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConvencaoInfo", ReplyAction="http://tempuri.org/IService1/ConvencaoInfoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> ConvencaoInfoAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -351,6 +363,22 @@ namespace Cliente.SOAPServices {
         
         public System.Threading.Tasks.Task<string> nameLogedinAsync(int id) {
             return base.Channel.nameLogedinAsync(id);
+        }
+        
+        public System.Data.DataTable ConsultasUtente(int id) {
+            return base.Channel.ConsultasUtente(id);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ConsultasUtenteAsync(int id) {
+            return base.Channel.ConsultasUtenteAsync(id);
+        }
+        
+        public System.Data.DataTable ConvencaoInfo() {
+            return base.Channel.ConvencaoInfo();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> ConvencaoInfoAsync() {
+            return base.Channel.ConvencaoInfoAsync();
         }
     }
 }

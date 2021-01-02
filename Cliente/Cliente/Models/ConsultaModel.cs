@@ -1,6 +1,7 @@
 ﻿using Nancy.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -50,6 +51,25 @@ namespace Cliente.Models
             {
                 throw new Exception("Add erro!", ex);
             }
+        }
+
+
+        public static string convencaoNomes()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                SOAPServices.Service1Client servico = new SOAPServices.Service1Client();
+                dt=servico.ConvencaoInfo();
+                return dt.TableName.ToString();
+            }
+            catch (Exception ex)
+            {
+                
+                return "null nao entrei" + ex.Message;
+                
+            }
+
         }
     }
 }

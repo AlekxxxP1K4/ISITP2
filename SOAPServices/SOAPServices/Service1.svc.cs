@@ -138,5 +138,31 @@ namespace SOAPServices
             }
         }
 
+
+        public DataTable ConvencaoInfo()
+        {
+           
+            DataTable dt = new DataTable();
+            try
+            {
+                conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostGreConnectionString"].ConnectionString);
+                conn.Open();
+                sql = @"select tipo from tipoconvencao";
+                cmd = new NpgsqlCommand(sql, conn);
+                
+                dt.Load(cmd.ExecuteReader());
+
+                
+                conn.Close();
+
+                return dt;
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return null;
+                throw;
+            }
+        }
     }
 }

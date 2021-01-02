@@ -28,6 +28,9 @@ namespace SOAPServices
         [OperationContract]
         DataTable ConsultasUtente(int id);
 
+        [OperationContract]
+        DataTable ConvencaoInfo();
+
 
     }
 
