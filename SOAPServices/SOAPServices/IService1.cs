@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -23,6 +24,9 @@ namespace SOAPServices
 
         [OperationContract]
         string nameLogedin(int id);
+
+        [OperationContract]
+        DataTable ConsultasUtente(int id);
 
 
     }

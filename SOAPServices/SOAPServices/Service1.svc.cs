@@ -8,6 +8,7 @@ using System.Text;
 using Npgsql;
 using System.Configuration;
 using SOAPServices.Model;
+using System.Data;
 
 namespace SOAPServices
 {
@@ -110,5 +111,32 @@ namespace SOAPServices
                 throw;
             }
         }
+
+
+        public DataTable ConsultasUtente(int id)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostGreConnectionString"].ConnectionString);
+                conn.Open();
+                sql = @"select * from consultas(@_id)";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("_id", id);
+
+                dt.Load(cmd.ExecuteReader());
+                
+                conn.Close();
+
+                return dt;
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return null;
+                throw;
+            }
+        }
+
     }
 }
