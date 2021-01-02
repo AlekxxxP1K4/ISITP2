@@ -55,6 +55,40 @@ end
 $$
 language plpgsql
 
+
+
+
+create or replace function consultas(_id_pessoa int)
+returns table
+(
+	_dataconsulta date,
+	_descricao character varying,
+	_estado int,
+	_tipoconvencao character varying,
+	_pessoa_utente character varying,
+	_pessoa_profsaude character varying,
+	_tipoconsulta_tipo character varying,
+	_local_local character varying
+)as
+$$
+begin
+	return query
+	select c.dataconsulta,c.descricao,c.estado,con.tipo
+	from tipoconvencao con inner join consulta c on (con.idtipoconv=c.idtipoconvencao)where pessoa_idutente=_id_pessoa
+	select p.nome,p.nome 
+	from pessoa p inner join consulta c on (p.idpessoa=c.pessoa_idutente and p.idpessoa=c.pessoa_idprofsaude) where pessoa_idutente=_id_pessoa
+	select t.tipo 
+	from tipoconsulta t inner join consulta c on (t.idtipo = c.tipoconsulta_idtipo) where pessoa_idutente=_id_pessoa
+	select l.morada
+	from local l inner join consulta c on (l.idlocal=c.local_idlocal) where pessoa_idutente=_id_pessoa order by idconsulta;
+end
+$$
+language plpgsql
+
+
+
+
+
 call marca_consulta ('01-02-2021','Tentativa',1,9,5,1,1,'29-12-2020','29-12-2020')
 create or replace procedure Marca_Consulta(_dataconsulta timestamp without time zone,_descricao character varying,_idtipoconvencao int,_pessoa_idutente int,_pessoa_idprofsaude int,_tipoconsulta_idtipo int,_local_idlocal int,_datamarcacao timestamp without time zone,_hora timestamp without time zone )
 Language 'plpgsql'

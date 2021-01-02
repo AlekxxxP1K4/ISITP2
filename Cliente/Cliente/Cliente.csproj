@@ -89,11 +89,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controller\ConsultaController.cs" />
     <Compile Include="Controller\RegistarController.cs" />
+    <Compile Include="Models\ConsultaModel.cs" />
     <Compile Include="Models\RegistarModel.cs" />
     <Compile Include="Models\ServicesModel.cs" />
     <Compile Include="View\DocWindow.xaml.cs">
       <DependentUpon>DocWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\MarcarCon.xaml.cs">
+      <DependentUpon>MarcarCon.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Registar.xaml.cs">
       <DependentUpon>Registar.xaml</DependentUpon>
@@ -123,6 +128,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\MarcarCon.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Registar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -33,5 +33,10 @@ namespace Cliente.View
             lbl_UserName.Content=LoginController.namelogedin(id);
             
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
