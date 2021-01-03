@@ -12,7 +12,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Button Content="Seguinte" Grid.Column="1" HorizontalAlignment="Left" Margin="666,342,0,0" VerticalAlignment="Top" Width="94" Height="25" Background="#FF456850"/>
-        <ComboBox x:Name="ComboBoxConv" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="85,263,0,0" VerticalAlignment="Top" Width="189" RenderTransformOrigin="0.505,0.598"/>
+        <ComboBox x:Name="ComboBoxConv" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="85,263,0,0" VerticalAlignment="Top" Width="189" RenderTransformOrigin="0.505,0.598" DisplayMemberPath="tipo" SelectedValuePath="idtipoconv"/>
         <ComboBox x:Name="ComboBoxLoc" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="291,263,0,0" VerticalAlignment="Top" Width="188"/>
         <ComboBox x:Name="ComboBoxProf" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="494,263,0,0" VerticalAlignment="Top" Width="189"/>
         <Label Grid.ColumnSpan="2" Content="Convenção(Opcional)" HorizontalAlignment="Left" Margin="90,232,0,0" VerticalAlignment="Top" Width="127"/>
@@ -28,7 +28,6 @@
         <Rectangle Grid.ColumnSpan="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="4" Margin="10,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="750"/>
         <Label Grid.ColumnSpan="2" Content="Marcação de consulta" HorizontalAlignment="Left" Margin="194,24,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Label Grid.ColumnSpan="2" Content="Faça aqui o seu pedido de marcação ou contacto" HorizontalAlignment="Left" Margin="194,53,0,0" VerticalAlignment="Top" FontSize="11"/>
-        <TextBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="564,39,0,0" TextWrapping="Wrap" Text="Pesquisar" VerticalAlignment="Top" Width="151"/>
         <Label Grid.ColumnSpan="2" Content="*Alguns médicos/tratamentos podem não estar abrangidos pelos seguros/sistemas de saúde apresentados" HorizontalAlignment="Left" Margin="127,366,0,0" VerticalAlignment="Top" FontSize="9"/>
         <Label Grid.ColumnSpan="2" Content="Para mais informações sobre este assunto, por favor contacte a cliníca" HorizontalAlignment="Left" Margin="127,388,0,0" VerticalAlignment="Top" FontSize="9"/>
         <Label Grid.ColumnSpan="2" Content="2. Data pretendida" HorizontalAlignment="Left" Margin="291,138,0,0" VerticalAlignment="Top"/>

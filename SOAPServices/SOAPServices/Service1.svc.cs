@@ -115,7 +115,7 @@ namespace SOAPServices
 
         public DataTable ConsultasUtente(int id)
         {
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable("Consultas");
             try
             {
                 conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostGreConnectionString"].ConnectionString);
@@ -142,12 +142,12 @@ namespace SOAPServices
         public DataTable ConvencaoInfo()
         {
            
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable("Convencao");
             try
             {
                 conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostGreConnectionString"].ConnectionString);
                 conn.Open();
-                sql = @"select tipo from tipoconvencao";
+                sql = @"select idtipoconv,tipo from tipoconvencao";
                 cmd = new NpgsqlCommand(sql, conn);
                 
                 dt.Load(cmd.ExecuteReader());

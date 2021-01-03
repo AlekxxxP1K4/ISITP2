@@ -54,19 +54,19 @@ namespace Cliente.Models
         }
 
 
-        public static string convencaoNomes()
+        public static DataTable convencaoNomes()
         {
             DataTable dt = new DataTable();
             try
             {
                 SOAPServices.Service1Client servico = new SOAPServices.Service1Client();
                 dt=servico.ConvencaoInfo();
-                return dt.TableName.ToString();
+                return dt;
             }
             catch (Exception ex)
             {
                 
-                return "null nao entrei" + ex.Message;
+                return null;
                 
             }
 

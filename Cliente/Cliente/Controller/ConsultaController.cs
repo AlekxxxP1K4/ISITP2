@@ -17,7 +17,7 @@ namespace Cliente.Controller
             return ConsultaModel.AddConsulta1(c);
         }
 
-        public static string TakeConvencao()
+        public static DataTable TakeConvencao()
         {
             return ConsultaModel.convencaoNomes();
         }

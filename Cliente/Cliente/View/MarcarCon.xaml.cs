@@ -31,7 +31,7 @@ namespace Cliente.View
             ComboBoxLoc.Items.Add("Domícilio");
             ComboBoxProf.Items.Add("Quim");
             ComboBoxProf.Items.Add("Alberto");
-            MessageBox.Show(ConsultaController.TakeConvencao());
+            ComboBoxConv.ItemsSource = ConsultaController.TakeConvencao().DefaultView;
             
             
         }
