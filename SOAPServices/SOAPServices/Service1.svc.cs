@@ -104,10 +104,10 @@ namespace SOAPServices
 
                 return result;
             }
-            catch (Exception)
+            catch (Exception es)
             {
                 conn.Close();
-                return "-1";
+                return es.Message;
                 throw;
             }
         }
