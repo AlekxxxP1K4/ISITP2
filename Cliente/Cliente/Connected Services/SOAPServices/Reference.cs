@@ -312,6 +312,18 @@ namespace Cliente.SOAPServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConvencaoInfo", ReplyAction="http://tempuri.org/IService1/ConvencaoInfoResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> ConvencaoInfoAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Medicos", ReplyAction="http://tempuri.org/IService1/MedicosResponse")]
+        System.Data.DataTable Medicos();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Medicos", ReplyAction="http://tempuri.org/IService1/MedicosResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> MedicosAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/TipoConsulta", ReplyAction="http://tempuri.org/IService1/TipoConsultaResponse")]
+        System.Data.DataTable TipoConsulta();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/TipoConsulta", ReplyAction="http://tempuri.org/IService1/TipoConsultaResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> TipoConsultaAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -379,6 +391,22 @@ namespace Cliente.SOAPServices {
         
         public System.Threading.Tasks.Task<System.Data.DataTable> ConvencaoInfoAsync() {
             return base.Channel.ConvencaoInfoAsync();
+        }
+        
+        public System.Data.DataTable Medicos() {
+            return base.Channel.Medicos();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> MedicosAsync() {
+            return base.Channel.MedicosAsync();
+        }
+        
+        public System.Data.DataTable TipoConsulta() {
+            return base.Channel.TipoConsulta();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> TipoConsultaAsync() {
+            return base.Channel.TipoConsultaAsync();
         }
     }
 }

@@ -88,6 +88,11 @@ namespace SOAPServices
         }
 
 
+        /// <summary>
+        /// Vai a base de dados e tras o nome do id pertencente a pessoa
+        /// </summary>
+        /// <param name="id">id pessoa</param>
+        /// <returns></returns>
         public string nameLogedin(int id)
         {
             try
@@ -113,6 +118,11 @@ namespace SOAPServices
         }
 
 
+        /// <summary>
+        /// Data table com as consultas todas de um utente
+        /// </summary>
+        /// <param name="id">utente</param>
+        /// <returns></returns>
         public DataTable ConsultasUtente(int id)
         {
             DataTable dt = new DataTable("Consultas");
@@ -139,6 +149,10 @@ namespace SOAPServices
         }
 
 
+        /// <summary>
+        /// Devolve tabela com as convecoes disponiveis
+        /// </summary>
+        /// <returns></returns>
         public DataTable ConvencaoInfo()
         {
            
@@ -153,6 +167,68 @@ namespace SOAPServices
                 dt.Load(cmd.ExecuteReader());
 
                 
+                conn.Close();
+
+                return dt;
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return null;
+                throw;
+            }
+        }
+
+
+        /// <summary>
+        /// Devolve tabela dos profissionais de saude
+        /// </summary>
+        /// <returns>Data table colunas Nome profissional idprofissional</returns>
+        public DataTable TipoConsulta()
+        {
+
+            DataTable dt = new DataTable("TipoConsulta");
+            try
+            {
+                conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostGreConnectionString"].ConnectionString);
+                conn.Open();
+                sql = @"select idtipo,tipo from tipoconsulta";
+                cmd = new NpgsqlCommand(sql, conn);
+
+                dt.Load(cmd.ExecuteReader());
+
+
+                conn.Close();
+
+                return dt;
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return null;
+                throw;
+            }
+        }
+
+
+        /// <summary>
+        /// Devolve tabela dos tipos de consulta
+        /// </summary>
+        /// <returns>Data table Colunas tipo e idtipo</returns>
+        public DataTable Medicos()
+        {
+
+            DataTable dt = new DataTable("Medicos");
+            try
+            {
+                conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["PostGreConnectionString"].ConnectionString);
+                conn.Open();
+                sql = @"select ur.utilizador_iduser, p1.nome from userroles ur inner join pessoa p1 on (ur.utilizador_iduser= p1.idpessoa) where role_idrole=2";
+                cmd = new NpgsqlCommand(sql, conn);
+
+                dt.Load(cmd.ExecuteReader());
+
+
                 conn.Close();
 
                 return dt;

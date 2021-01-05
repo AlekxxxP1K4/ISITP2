@@ -16,7 +16,7 @@ using Microsoft.Extensions.Configuration;
 namespace RESTServices.Controllers
 {
     [ApiController]
-    [Route("/service")]
+    [Route("/[CONTROLLER]")]
     public class ServiceController:ControllerBase
     {
         private readonly IConfiguration _connfiguration;
@@ -34,6 +34,12 @@ namespace RESTServices.Controllers
             conn = new NpgsqlConnection(connStr);
         }
 
+        /// <summary>
+        /// get para verificar se o nif é valido e se o email esta sintaticamente correto
+        /// </summary>
+        /// <param name="nif">NIF da pessoa</param>
+        /// <param name="email">Email da pessoa</param>
+        /// <returns>true se tudo ok, false caso nao aceite algum</returns>
         [HttpGet("verificaNifeEmail/{nif}&{email}")]
         public bool GetNifEmail(string nif,string email)
         {
@@ -95,7 +101,11 @@ namespace RESTServices.Controllers
 
 
         //verifica se o nif e email esta na tabela
-
+        /// <summary>
+        /// Verifica se o nif existe na tabela
+        /// </summary>
+        /// <param name="nif">Nif</param>
+        /// <returns>Retora o resultado da query</returns>
         [HttpGet("nif/{nif}")]
         public int CheckNIF(int nif)
         {
@@ -120,6 +130,11 @@ namespace RESTServices.Controllers
             }
         }
 
+        /// <summary>
+        /// Verifica se existe email na tabela
+        /// </summary>
+        /// <param name="email">Email da pessoa</param>
+        /// <returns>Retorna resultado da query</returns>
         [HttpGet("email/{email}")]
         public int CheckEmail(string email)
         {

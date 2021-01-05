@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IhH6hACmGRRIDip8m0UdaYijg11cKUtXQmyQM99tb6YdrxVc77lrWkYJ7SCZy0kKsKi1kui1beGRZ60FwW9vAw==",
+  "dgSpecHash": "XHltNNRn9OCmMOTdljncNbGBBbxSddAUSyWxcdwj/eQRv4ub10jwSkxOR4b4uDqeNeObZmABBW7IeY/805h9wg==",
   "success": true,
   "projectFilePath": "C:\\IPCA\\3ºAno\\Trabalho 2 ISI\\ISITP2\\RESTServices\\RESTServices\\RESTServices.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\oleks\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.0\\microsoft.aspnetcore.authentication.jwtbearer.5.0.0.nupkg.sha512",
+    "C:\\Users\\oleks\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.1\\microsoft.aspnetcore.authentication.jwtbearer.5.0.1.nupkg.sha512",
     "C:\\Users\\oleks\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\5.0.0\\microsoft.aspnetcore.authentication.openidconnect.5.0.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\oleks\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

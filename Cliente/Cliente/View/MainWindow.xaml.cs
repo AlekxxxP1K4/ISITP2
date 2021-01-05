@@ -21,6 +21,7 @@ namespace Cliente.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        static int iduser;
         public MainWindow()
         {
             
@@ -31,10 +32,19 @@ namespace Cliente.View
         {
             InitializeComponent();
             lbl_UserName.Content=LoginController.namelogedin(id);
-            
+            iduser = id;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void Button_ClickMarcarConsulta(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var Cons = new MarcarCon(iduser);
+            Cons.Closed += (s, args) => this.Close();
+            Cons.Show();
+        }
+
+        private void Button_ClickVerConsultas(object sender, RoutedEventArgs e)
         {
 
         }

@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="ipcaservicos" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\IPCA\\3ºAno\\Trabalho\ 2\ ISI\\ISITP2\\RESTServices\\RESTServices\\obj\\Release\\net5\.0\\PubTmp\\Out\\$" />
+  </parameter>
+</parameters>

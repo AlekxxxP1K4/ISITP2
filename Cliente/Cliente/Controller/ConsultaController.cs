@@ -7,14 +7,27 @@ using System.Threading.Tasks;
 using Cliente.Models;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
+using Cliente.View;
 
 namespace Cliente.Controller
 {
     class ConsultaController
     {
-        public static int Marcar(Consulta c)
+        public static bool Marcar(int idpessoa,int idprofissional,int idconvencao, int idtipoconsulta ,string desc,DateTime dataconsulta)
         {
-            return ConsultaModel.AddConsulta1(c);
+            Consulta c = new Consulta();
+            c.dataconsulta = dataconsulta;
+            c.descricao = desc;
+            c.idtipoconvencao = idconvencao;
+            c.pessoa_idprofsaude = idprofissional;
+            c.pessoa_idutente = idpessoa;
+            c.tipoconsulta_idtipo = idtipoconsulta;
+
+            if (ConsultaModel.MarcaConsulta(c) == "Funcionou")
+            {
+                return true;
+            }
+            else return false;
         }
 
         public static DataTable TakeConvencao()
@@ -22,6 +35,16 @@ namespace Cliente.Controller
             return ConsultaModel.convencaoNomes();
         }
 
+        public static DataTable TakeMedicos()
+        {
+            return ConsultaModel.medicosNomes();
+        }
+
+        public static DataTable TakeTipoConsulta()
+        {
+            return ConsultaModel.tipoconsultaNomes();
+        }
         
+
     }
 }

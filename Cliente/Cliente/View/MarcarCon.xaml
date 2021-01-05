@@ -11,27 +11,27 @@
             <ColumnDefinition Width="0*" />
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Content="Seguinte" Grid.Column="1" HorizontalAlignment="Left" Margin="666,342,0,0" VerticalAlignment="Top" Width="94" Height="25" Background="#FF456850"/>
-        <ComboBox x:Name="ComboBoxConv" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="85,263,0,0" VerticalAlignment="Top" Width="189" RenderTransformOrigin="0.505,0.598" DisplayMemberPath="tipo" SelectedValuePath="idtipoconv"/>
-        <ComboBox x:Name="ComboBoxLoc" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="291,263,0,0" VerticalAlignment="Top" Width="188"/>
-        <ComboBox x:Name="ComboBoxProf" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="494,263,0,0" VerticalAlignment="Top" Width="189"/>
-        <Label Grid.ColumnSpan="2" Content="Convenção(Opcional)" HorizontalAlignment="Left" Margin="90,232,0,0" VerticalAlignment="Top" Width="127"/>
-        <Label Grid.ColumnSpan="2" Content="Local" HorizontalAlignment="Left" Margin="291,232,0,0" VerticalAlignment="Top" Width="38"/>
-        <Label Grid.ColumnSpan="2" Content="Profisional de saúde" HorizontalAlignment="Left" Margin="494,232,0,0" VerticalAlignment="Top" Width="121"/>
-        <Button Content="Anterior" Grid.Column="1" HorizontalAlignment="Left" Margin="27,342,0,0" VerticalAlignment="Top" Width="95" Height="25" Background="#FF456850" Click="Button_Click"/>
+        <Button Content="Marcar" Grid.Column="1" HorizontalAlignment="Left" Margin="666,342,0,0" VerticalAlignment="Top" Width="94" Height="25" Background="#FF456850" Click="Button_ClickMarcar"/>
+        <ComboBox x:Name="ComboBoxConv" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="42,295,0,0" VerticalAlignment="Top" Width="189" RenderTransformOrigin="0.505,0.598" DisplayMemberPath="tipo" SelectedValuePath="idtipoconv"/>
+        <ComboBox x:Name="ComboBoxLoc" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="42,152,0,0" VerticalAlignment="Top" Width="188"/>
+        <ComboBox x:Name="ComboBoxProf" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="42,222,0,0" VerticalAlignment="Top" Width="189" DisplayMemberPath="nome" SelectedValuePath="utilizador_iduser"/>
+        <Label Grid.ColumnSpan="2" Content="Convenção(Opcional)" HorizontalAlignment="Left" Margin="42,264,0,0" VerticalAlignment="Top" Width="127"/>
+        <Label Grid.ColumnSpan="2" Content="Local" HorizontalAlignment="Left" Margin="42,121,0,0" VerticalAlignment="Top" Width="38"/>
+        <Label Grid.ColumnSpan="2" Content="Profisional de saúde" HorizontalAlignment="Left" Margin="42,191,0,0" VerticalAlignment="Top" Width="121"/>
+        <Button Content="Voltar" Grid.Column="1" HorizontalAlignment="Left" Margin="27,342,0,0" VerticalAlignment="Top" Width="95" Height="25" Background="#FF456850" Click="Button_ClickBack"/>
         <Rectangle Grid.ColumnSpan="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="4" Margin="27,333,0,0" Stroke="Black" VerticalAlignment="Top" Width="733"/>
-        <Rectangle Grid.ColumnSpan="2" Fill="#FF456850" HorizontalAlignment="Left" Height="22" Margin="85,169,0,0" Stroke="Black" VerticalAlignment="Top" Width="189"/>
-        <Rectangle Grid.ColumnSpan="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="22" Margin="494,169,0,0" Stroke="Black" VerticalAlignment="Top" Width="189"/>
-        <Rectangle Grid.ColumnSpan="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="22" Margin="291,169,0,0" Stroke="Black" VerticalAlignment="Top" Width="188"/>
-        <Label Grid.ColumnSpan="2" Content="1. Marcação" HorizontalAlignment="Left" Margin="85,138,0,0" VerticalAlignment="Top" Width="127"/>
         <Image HorizontalAlignment="Left" Margin="27,7,0,300" Width="109" Source="Img/logo.png" Grid.ColumnSpan="2"/>
         <Rectangle Grid.ColumnSpan="2" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="4" Margin="10,102,0,0" Stroke="Black" VerticalAlignment="Top" Width="750"/>
         <Label Grid.ColumnSpan="2" Content="Marcação de consulta" HorizontalAlignment="Left" Margin="194,24,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
         <Label Grid.ColumnSpan="2" Content="Faça aqui o seu pedido de marcação ou contacto" HorizontalAlignment="Left" Margin="194,53,0,0" VerticalAlignment="Top" FontSize="11"/>
         <Label Grid.ColumnSpan="2" Content="*Alguns médicos/tratamentos podem não estar abrangidos pelos seguros/sistemas de saúde apresentados" HorizontalAlignment="Left" Margin="127,366,0,0" VerticalAlignment="Top" FontSize="9"/>
         <Label Grid.ColumnSpan="2" Content="Para mais informações sobre este assunto, por favor contacte a cliníca" HorizontalAlignment="Left" Margin="127,388,0,0" VerticalAlignment="Top" FontSize="9"/>
-        <Label Grid.ColumnSpan="2" Content="2. Data pretendida" HorizontalAlignment="Left" Margin="291,138,0,0" VerticalAlignment="Top"/>
-        <Label Grid.ColumnSpan="2" Content="3. Confirmação" HorizontalAlignment="Left" Margin="494,138,0,0" VerticalAlignment="Top"/>
+        <Label Grid.ColumnSpan="2" Content="Data" HorizontalAlignment="Left" Margin="561,122,0,0" VerticalAlignment="Top" Width="127"/>
+        <Calendar x:Name="DataCalendary" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="561,153,0,0" VerticalAlignment="Top" Height="165" Width="173" />
+        <TextBox x:Name="TextDescricao" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="66" Margin="304,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+        <Label Grid.ColumnSpan="2" Content="Descrição" HorizontalAlignment="Left" Margin="304,129,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="ComboBoxTipoCon" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="304,295,0,0" VerticalAlignment="Top" Width="189" DisplayMemberPath="tipo" SelectedValuePath="idtipo"/>
+        <Label Grid.ColumnSpan="2" Content="Tipo de consulta" HorizontalAlignment="Left" Margin="304,264,0,0" VerticalAlignment="Top" Width="121"/>
 
     </Grid>
 </Window>
