@@ -143,7 +143,7 @@ namespace Cliente.Models
         {
             try
             {
-                SOAPServices.Service1Client service = new SOAPServices.Service1Client();
+                SOAPServices.ServiceClient service = new SOAPServices.ServiceClient();
                 return service.VerificarUserinTable(user);
             }
             catch (Exception)

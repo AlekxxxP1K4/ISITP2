@@ -15,7 +15,7 @@ namespace Cliente.SOAPServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Utilizador", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Utilizador", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
     public partial class Utilizador : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -156,7 +156,7 @@ namespace Cliente.SOAPServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Pessoa", Namespace="http://schemas.datacontract.org/2004/07/SOAPServices.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Pessoa", Namespace="http://schemas.datacontract.org/2004/07/")]
     [System.SerializableAttribute()]
     public partial class Pessoa : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -280,76 +280,76 @@ namespace Cliente.SOAPServices {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SOAPServices.IService1")]
-    public interface IService1 {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="SOAPServices.IService")]
+    public interface IService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistrarUser", ReplyAction="http://tempuri.org/IService1/RegistrarUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RegistrarUser", ReplyAction="http://tempuri.org/IService/RegistrarUserResponse")]
         string RegistrarUser(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p, int role);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/RegistrarUser", ReplyAction="http://tempuri.org/IService1/RegistrarUserResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/RegistrarUser", ReplyAction="http://tempuri.org/IService/RegistrarUserResponse")]
         System.Threading.Tasks.Task<string> RegistrarUserAsync(Cliente.SOAPServices.Utilizador u, Cliente.SOAPServices.Pessoa p, int role);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/VerificarUserinTable", ReplyAction="http://tempuri.org/IService1/VerificarUserinTableResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/VerificarUserinTable", ReplyAction="http://tempuri.org/IService/VerificarUserinTableResponse")]
         int VerificarUserinTable(string user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/VerificarUserinTable", ReplyAction="http://tempuri.org/IService1/VerificarUserinTableResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/VerificarUserinTable", ReplyAction="http://tempuri.org/IService/VerificarUserinTableResponse")]
         System.Threading.Tasks.Task<int> VerificarUserinTableAsync(string user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/nameLogedin", ReplyAction="http://tempuri.org/IService1/nameLogedinResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/nameLogedin", ReplyAction="http://tempuri.org/IService/nameLogedinResponse")]
         string nameLogedin(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/nameLogedin", ReplyAction="http://tempuri.org/IService1/nameLogedinResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/nameLogedin", ReplyAction="http://tempuri.org/IService/nameLogedinResponse")]
         System.Threading.Tasks.Task<string> nameLogedinAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConsultasUtente", ReplyAction="http://tempuri.org/IService1/ConsultasUtenteResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ConsultasUtente", ReplyAction="http://tempuri.org/IService/ConsultasUtenteResponse")]
         System.Data.DataTable ConsultasUtente(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConsultasUtente", ReplyAction="http://tempuri.org/IService1/ConsultasUtenteResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ConsultasUtente", ReplyAction="http://tempuri.org/IService/ConsultasUtenteResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> ConsultasUtenteAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConvencaoInfo", ReplyAction="http://tempuri.org/IService1/ConvencaoInfoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ConvencaoInfo", ReplyAction="http://tempuri.org/IService/ConvencaoInfoResponse")]
         System.Data.DataTable ConvencaoInfo();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ConvencaoInfo", ReplyAction="http://tempuri.org/IService1/ConvencaoInfoResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/ConvencaoInfo", ReplyAction="http://tempuri.org/IService/ConvencaoInfoResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> ConvencaoInfoAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Medicos", ReplyAction="http://tempuri.org/IService1/MedicosResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Medicos", ReplyAction="http://tempuri.org/IService/MedicosResponse")]
         System.Data.DataTable Medicos();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Medicos", ReplyAction="http://tempuri.org/IService1/MedicosResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Medicos", ReplyAction="http://tempuri.org/IService/MedicosResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> MedicosAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/TipoConsulta", ReplyAction="http://tempuri.org/IService1/TipoConsultaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/TipoConsulta", ReplyAction="http://tempuri.org/IService/TipoConsultaResponse")]
         System.Data.DataTable TipoConsulta();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/TipoConsulta", ReplyAction="http://tempuri.org/IService1/TipoConsultaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/TipoConsulta", ReplyAction="http://tempuri.org/IService/TipoConsultaResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> TipoConsultaAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IService1Channel : Cliente.SOAPServices.IService1, System.ServiceModel.IClientChannel {
+    public interface IServiceChannel : Cliente.SOAPServices.IService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class Service1Client : System.ServiceModel.ClientBase<Cliente.SOAPServices.IService1>, Cliente.SOAPServices.IService1 {
+    public partial class ServiceClient : System.ServiceModel.ClientBase<Cliente.SOAPServices.IService>, Cliente.SOAPServices.IService {
         
-        public Service1Client() {
+        public ServiceClient() {
         }
         
-        public Service1Client(string endpointConfigurationName) : 
+        public ServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public Service1Client(string endpointConfigurationName, string remoteAddress) : 
+        public ServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         

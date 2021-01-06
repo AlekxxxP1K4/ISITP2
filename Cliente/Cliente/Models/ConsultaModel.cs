@@ -25,7 +25,7 @@ namespace Cliente.Models
             DataTable dt = new DataTable();
             try
             {
-                SOAPServices.Service1Client servico = new SOAPServices.Service1Client();
+                SOAPServices.ServiceClient servico = new SOAPServices.ServiceClient();
                 dt=servico.ConvencaoInfo();
                 return dt;
             }
@@ -43,7 +43,7 @@ namespace Cliente.Models
             DataTable dt = new DataTable();
             try
             {
-                SOAPServices.Service1Client servico = new SOAPServices.Service1Client();
+                SOAPServices.ServiceClient servico = new SOAPServices.ServiceClient();
                 dt = servico.Medicos();
                 return dt;
             }
@@ -61,7 +61,7 @@ namespace Cliente.Models
             DataTable dt = new DataTable();
             try
             {
-                SOAPServices.Service1Client servico = new SOAPServices.Service1Client();
+                SOAPServices.ServiceClient servico = new SOAPServices.ServiceClient();
                 dt = servico.TipoConsulta();
                 return dt;
             }

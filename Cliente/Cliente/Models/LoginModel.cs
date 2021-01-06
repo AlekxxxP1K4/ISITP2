@@ -97,7 +97,7 @@ namespace Cliente.Models
         {
             try
             {
-                SOAPServices.Service1Client servico = new SOAPServices.Service1Client();
+                SOAPServices.ServiceClient servico = new SOAPServices.ServiceClient();
                 return servico.nameLogedin(id);
             }catch(Exception ex)
             {
