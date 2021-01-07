@@ -13,14 +13,18 @@ namespace Cliente.Controller
 {
     public class LoginController
     {
-        static public int login(string user,string pw)
+        static public AuthResponse login(string user,string pw)
         {
-            return LoginModel.LoginIn(user, pw);
+            AuthResponse auth = new AuthResponse();
+
+            auth=LoginModel.LoginIn(user, pw);
+
+            return auth;
         }
 
-        static public int role(int id)
+        static public int role(int id,string token)
         {
-            return LoginModel.TakeUser(id);
+            return LoginModel.TakeUser(id,token);
         }
 
         static public string namelogedin(int id)

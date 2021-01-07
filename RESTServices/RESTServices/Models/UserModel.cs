@@ -57,7 +57,7 @@ namespace RESTServices.Models
             return response;
         }
 
-
+        
         public int takeRole(int id)
         {
             try

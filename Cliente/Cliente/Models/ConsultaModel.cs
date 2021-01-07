@@ -84,7 +84,7 @@ namespace Cliente.Models
                
                 HttpClient client = new HttpClient();
                 client.BaseAddress = new Uri(url);
-
+                
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                 string jsonString = JsonConvert.SerializeObject(c);
                 var stringContent = new StringContent(jsonString, Encoding.UTF8, "application/json");

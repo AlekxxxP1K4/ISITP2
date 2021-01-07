@@ -22,24 +22,27 @@ namespace Cliente.View
     public partial class MainWindow : Window
     {
         static int iduser;
+        static string token;
         public MainWindow()
         {
             
             InitializeComponent();
             lbl_UserName.Content = LoginController.namelogedin(14);
         }
-        public MainWindow(int id)
+        public MainWindow(int id,string token1)
         {
             InitializeComponent();
             lbl_UserName.Content=LoginController.namelogedin(id);
             iduser = id;
+            token = token1;
+            //MessageBox.Show(iduser.ToString() +"\n" + token);
         }
 
 
         private void Button_ClickMarcarConsulta(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            var Cons = new MarcarCon(iduser);
+            var Cons = new MarcarCon(iduser,token);
             Cons.Closed += (s, args) => this.Close();
             Cons.Show();
         }

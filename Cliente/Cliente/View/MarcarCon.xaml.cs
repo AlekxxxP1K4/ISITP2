@@ -22,9 +22,10 @@ namespace Cliente.View
     /// </summary>
     public partial class MarcarCon : Window
     {
-        int iduser;
+        static int iduser;
+        static string token;
         DataTable dt = new DataTable();
-        public MarcarCon(int idpessoa)
+        public MarcarCon(int idpessoa,string token1)
         {
             InitializeComponent();
             ComboBoxLoc.Items.Add("Gabinete");
@@ -34,6 +35,7 @@ namespace Cliente.View
             ComboBoxTipoCon.ItemsSource = ConsultaController.TakeTipoConsulta().DefaultView;
             DataCalendary.DisplayDateStart = DateTime.Today;
             iduser = idpessoa;
+            token = token1;
 
 
         }
@@ -82,7 +84,7 @@ namespace Cliente.View
                 {
                     MessageBox.Show("Consulta Marcada");
                     this.Hide();
-                    var Main = new MainWindow(iduser);
+                    var Main = new MainWindow(iduser,token);
                     Main.Closed += (s, args) => this.Close();
                     Main.Show();
                 }
@@ -94,7 +96,7 @@ namespace Cliente.View
         private void Button_ClickBack(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            var Main = new MainWindow(iduser);
+            var Main = new MainWindow(iduser,token);
             Main.Closed += (s, args) => this.Close();
             Main.Show();
         }

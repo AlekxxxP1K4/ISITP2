@@ -19,9 +19,14 @@ namespace Cliente.View
     /// </summary>
     public partial class DocWindow : Window
     {
-        public DocWindow(int id)
+        static int idloged;
+        static string token;
+        public DocWindow(int id,string token1)
         {
             InitializeComponent();
+            idloged = id;
+            token = token1;
+
         }
     }
 }

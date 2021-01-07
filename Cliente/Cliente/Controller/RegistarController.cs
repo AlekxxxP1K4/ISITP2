@@ -9,6 +9,8 @@ namespace Cliente.Controller
 {
     class RegistarController
     {
+
+
         static public string registar(string user,string nome,int nif,string email,string morada,string contacto,DateTime dataNascimento,string password,int role)
         {
             try

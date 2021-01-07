@@ -53,6 +53,7 @@ namespace RESTServices.Controllers
         /// </summary>
         /// <param name="id">id da pessoa</param>
         /// <returns>retorn a id da role</returns>
+        [Authorize]
         [HttpGet("role/{id}")]
         public int GetRoles(int id)
         {

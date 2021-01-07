@@ -36,34 +36,37 @@ namespace Cliente.View
             }
             else
             {
-                int resposta = LoginController.login(User.Text.ToString(), Pass.Password.ToString());
-                if (resposta > 0)
+                //int resposta = LoginController.login(User.Text.ToString(), Pass.Password.ToString());
+                Cliente.Models.AuthResponse resposta = LoginController.login(User.Text.ToString(), Pass.Password.ToString());
+
+               // MessageBox.Show(resposta);
+                if (resposta.logedid > 0)
                 {
 
-                    int role = LoginController.role(resposta);
+                    int role = LoginController.role(resposta.logedid,resposta.token);
                     switch (role)
                     {
                         case 1:  //utente
                             this.Hide();
-                            var Main = new MainWindow(resposta);
+                            var Main = new MainWindow(resposta.logedid,resposta.token);
                             Main.Closed += (s, args) => this.Close();
                             Main.Show();
                             break;
                         case 2:  //doutor
                             this.Hide();
-                            var Doc = new DocWindow(resposta);
+                            var Doc = new DocWindow(resposta.logedid, resposta.token);
                             Doc.Closed += (s, args) => this.Close();
                             Doc.Show();
                             break;
                         case 3:   //funcionario
                             this.Hide();
-                            //var Func = new FuncWindow(resposta);
+                            //var Func = new FuncWindow(resposta.logedid,resposta.token);
                             //Func.Closed += (s, args) => this.Close();
                             //Func.Show();
                             break;
                         case 4:   //admin
                             this.Hide();
-                            // var Adm = new AdminWindow(resposta);
+                            // var Adm = new AdminWindow(resposta.logedid,resposta.token);
                             //Adm.Closed += (s, args) => this.Close();
                             //Adm.Show();
                             break;
@@ -72,11 +75,11 @@ namespace Cliente.View
                             break;
                     }
                 }
-                else if (resposta == 0)
+                else if (resposta.logedid == 0)
                 {
                     MessageBox.Show("Sem ligaçao ao Servidor");
                 }
-                else if (resposta == -1)
+                else if (resposta.logedid == -1)
                 {
                     MessageBox.Show("Password errada");
                 }

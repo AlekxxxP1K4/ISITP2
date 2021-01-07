@@ -1,9 +1,11 @@
 ﻿using Nancy.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -18,7 +20,7 @@ namespace Cliente.Models
               #endregion
 
 
-        static public int LoginIn(string user, string pass)
+        static public AuthResponse LoginIn(string user, string pass)
         {
             
             try
@@ -26,72 +28,65 @@ namespace Cliente.Models
                 
                 url = "http://localhost:61992/user/login/[USER]&[PW]";
 
-                #region ConstroiURI
+                
                 uri = new StringBuilder();
                 uri.Append(url);
                 uri.Replace("[USER]", HttpUtility.UrlEncode(user));
                 uri.Replace("[PW]", HttpUtility.UrlEncode(pass));
-                #endregion
-                request = WebRequest.Create(uri.ToString()) as HttpWebRequest;
 
-                #region EnviaPedidoAnalisaResposta
-                int resposta;
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(uri.ToString());
 
-                using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)     //via GET
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+
+                HttpResponseMessage response = client.GetAsync(uri.ToString()).Result;
+                if (response.IsSuccessStatusCode)
                 {
-                    if (response.StatusCode != HttpStatusCode.OK)
-                    {
-                        string message = String.Format("GET falhou. Recebido HTTP {0}", response.StatusCode);
-                        throw new ApplicationException(message);
-                    }
-
-                    string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                    resposta = int.Parse(content);
-
+                    AuthResponse resposta = JsonConvert.DeserializeObject<AuthResponse>(response.Content.ReadAsStringAsync().Result);
+                    //string resposta = response.Content.ReadAsStringAsync().Result;
+                    return resposta;
                 }
-
-                return resposta;
-                #endregion
-
+                else
+                {
+                    return null;
+                }
 
             }
             catch (Exception ex)
             {
-                return 0;
+                return null;
                 throw (ex);
             }
         }
 
-        static public int TakeUser(int id)
+        static public int TakeUser(int id,string token)
         {
             
-            //Weather URL
+            
             url = "http://localhost:61992/user/role/[ID]";
 
-            #region ConstroiURI
             uri = new StringBuilder();
             uri.Append(url);
             uri.Replace("[ID]", HttpUtility.UrlEncode(id.ToString()));
-            #endregion
-            request = WebRequest.Create(uri.ToString()) as HttpWebRequest;
 
-            #region EnviaPedidoAnalisaResposta
-            int resposta;
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(uri.ToString());
 
-            using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)     //via GET
+            client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+            HttpResponseMessage response = client.GetAsync(uri.ToString()).Result;
+            if (response.IsSuccessStatusCode)
             {
-                if (response.StatusCode != HttpStatusCode.OK)
-                {
-                    string message = String.Format("GET falhou. Recebido HTTP {0}", response.StatusCode);
-                    throw new ApplicationException(message);
-                }
-
-                string content = new StreamReader(response.GetResponseStream()).ReadToEnd();
-                resposta = int.Parse(content);
-
+                int resposta = JsonConvert.DeserializeObject<int>(response.Content.ReadAsStringAsync().Result);
+                //string resposta = response.Content.ReadAsStringAsync().Result;
+                return resposta;
             }
-            #endregion
-            return resposta;
+            else
+            {
+                return -1;
+            }
         }
         static public string namelogedin(int id)
         {
@@ -105,5 +100,13 @@ namespace Cliente.Models
             }
             
         }
+
+        
+    }
+
+    public class AuthResponse
+    {
+        public int logedid { get; set; }
+        public string token { get; set; }
     }
 }
