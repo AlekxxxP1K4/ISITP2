@@ -47,10 +47,14 @@ namespace RESTServices.Models
                 throw;
             }
         }
+        
 
-        public AuthResponse LoginResposta(int idloged,var token)
+        public AuthResponse LoginResposta(int idloged,string token)
         {
-
+            AuthResponse response = new AuthResponse();
+            response.logedid = idloged;
+            response.token = token;
+            return response;
         }
 
 
@@ -77,5 +81,11 @@ namespace RESTServices.Models
             }
 
         }
+
+    }
+    public class AuthResponse
+    {
+        public int logedid { get; set; }
+        public string token { get; set; }
     }
 }

@@ -7,6 +7,7 @@ using RESTServices.Models;
 using Npgsql;
 using Microsoft.Extensions.Configuration;
 using System.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RESTServices.Controllers
 {
@@ -26,6 +27,7 @@ namespace RESTServices.Controllers
         /// </summary>
         /// <param name="c">Recebe Consulta Objeto como parametro</param>
         /// <returns> retorna "Funcionou" caso sucesso</returns>
+        [Authorize]
         [HttpPost("registar")]
         public string RegistaConsulta(Consulta c)
         {

@@ -9,6 +9,8 @@ using RESTServices.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace RESTServices.Controllers
 {
@@ -29,20 +31,20 @@ namespace RESTServices.Controllers
         /// <param name="user">username</param>
         /// <param name="pw">palavra pass</param>
         /// <returns>Retorna id de utilizador e token</returns>
+        
         [HttpGet("login/{user}&{pw}")]
         public AuthResponse GetLogin(string user, string pw)
         {
             UserModel utilizador = new UserModel(_connfiguration);
             int idlogedin = utilizador.login(user, pw);
-
+            
             if (idlogedin > 0)
             {
                 var tokenString = GetTokenJWT();
-                return utilizador.LoginResposta(idlogedin,tokenString);
-                //cria token
+                return utilizador.LoginResposta(idlogedin, tokenString);
             }
             else
-                return idlogedin;
+                return null;
 
         }
 
@@ -59,6 +61,20 @@ namespace RESTServices.Controllers
            
         }
 
-        
+        private string GetTokenJWT()
+        {
+            var issuer = _connfiguration["Jwt:Issuer"];
+            var audience = _connfiguration["Jwt:Audience"];
+            var expiry = DateTime.Now.AddMinutes(120);  //válido por 2 horas
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_connfiguration["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(issuer: issuer, audience: audience, expires: DateTime.Now.AddMinutes(120), signingCredentials: credentials);
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var stringToken = tokenHandler.WriteToken(token);
+            return stringToken;
+
+        }
     }
 }
