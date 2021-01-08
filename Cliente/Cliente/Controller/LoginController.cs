@@ -13,16 +13,17 @@ namespace Cliente.Controller
 {
     public class LoginController
     {
+        public static string token;
         static public AuthResponse login(string user,string pw)
         {
             AuthResponse auth = new AuthResponse();
-
+            
             auth=LoginModel.LoginIn(user, pw);
-
+            token = auth.token;
             return auth;
         }
 
-        static public int role(int id,string token)
+        static public int role(int id)
         {
             return LoginModel.TakeUser(id,token);
         }

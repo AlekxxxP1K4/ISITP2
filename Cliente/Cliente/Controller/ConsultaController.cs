@@ -13,6 +13,7 @@ namespace Cliente.Controller
 {
     class ConsultaController
     {
+        public static string token;
         public static bool Marcar(int idpessoa,int idprofissional,int idconvencao, int idtipoconsulta ,string desc,DateTime dataconsulta)
         {
             Consulta c = new Consulta();
@@ -22,7 +23,7 @@ namespace Cliente.Controller
             c.pessoa_idprofsaude = idprofissional;
             c.pessoa_idutente = idpessoa;
             c.tipoconsulta_idtipo = idtipoconsulta;
-
+            ConsultaModel.token = token;
             if (ConsultaModel.MarcaConsulta(c) == "Funcionou")
             {
                 return true;

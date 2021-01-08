@@ -36,6 +36,7 @@ namespace Cliente.View
             DataCalendary.DisplayDateStart = DateTime.Today;
             iduser = idpessoa;
             token = token1;
+            ConsultaController.token = token;
 
 
         }

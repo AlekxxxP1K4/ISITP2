@@ -18,6 +18,7 @@ namespace Cliente.Models
 
         
         static string url;
+        public static string token;
 
         
         public static DataTable convencaoNomes()
@@ -86,6 +87,7 @@ namespace Cliente.Models
                 client.BaseAddress = new Uri(url);
                 
                 client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                 string jsonString = JsonConvert.SerializeObject(c);
                 var stringContent = new StringContent(jsonString, Encoding.UTF8, "application/json");
 

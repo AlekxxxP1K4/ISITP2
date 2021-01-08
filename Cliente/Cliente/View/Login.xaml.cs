@@ -43,7 +43,7 @@ namespace Cliente.View
                 if (resposta.logedid > 0)
                 {
 
-                    int role = LoginController.role(resposta.logedid,resposta.token);
+                    int role = LoginController.role(resposta.logedid);
                     switch (role)
                     {
                         case 1:  //utente
