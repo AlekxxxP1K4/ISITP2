@@ -21,7 +21,7 @@ namespace Cliente.Models
         {
             try
             {
-                url = "http://localhost:61992/service/verificaNifeEmail/[NIF]&[EMAIL]";
+                url = "https://ipcaservicos.azurewebsites.net/service/verificaNifeEmail/[NIF]&[EMAIL]";
 
                 #region ConstroiURI
                 uri = new StringBuilder();
@@ -62,7 +62,7 @@ namespace Cliente.Models
         {
             try
             {
-                url = "http://localhost:61992/service/email/[EMAIL]";
+                url = "https://ipcaservicos.azurewebsites.net/service/email/[EMAIL]";
 
                 #region ConstroiURI
                 uri = new StringBuilder();
@@ -103,7 +103,7 @@ namespace Cliente.Models
         {
             try
             {
-                url = "http://localhost:61992/service/nif/[NIF]";
+                url = "https://ipcaservicos.azurewebsites.net/service/nif/[NIF]";
 
                 #region ConstroiURI
                 uri = new StringBuilder();

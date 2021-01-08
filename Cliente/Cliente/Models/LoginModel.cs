@@ -26,7 +26,7 @@ namespace Cliente.Models
             try
             {
                 
-                url = "http://localhost:61992/user/login/[USER]&[PW]";
+                url = "https://ipcaservicos.azurewebsites.net/user/login/[USER]&[PW]";
 
                 
                 uri = new StringBuilder();
@@ -64,7 +64,7 @@ namespace Cliente.Models
         {
             
             
-            url = "http://localhost:61992/user/role/[ID]";
+            url = "https://ipcaservicos.azurewebsites.net/user/role/[ID]";
 
             uri = new StringBuilder();
             uri.Append(url);

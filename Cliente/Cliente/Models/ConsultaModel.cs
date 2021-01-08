@@ -80,7 +80,7 @@ namespace Cliente.Models
         {
             try
             {
-                url = "http://localhost:61992/consulta/registar";
+                url = "https://ipcaservicos.azurewebsites.net/consulta/registar";
 
                
                 HttpClient client = new HttpClient();
