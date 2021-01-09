@@ -5,7 +5,7 @@ select * from local
 select * from tipoconsulta
 select * from userroles
 select * from role
-
+select * from consultas(9)
 select ur.utilizador_iduser,p1.nome from userroles ur inner join pessoa p1 on (ur.utilizador_iduser=p1.idpessoa) where role_idrole=2
 Call Insert_Utente('ricardo11','Ricardo Alfredo da Silva', 243372621,
 				   'ricardoalfredo@gmail.com', 'Barcelos', '919889913', '08-05-1984 00:00:00', 'ric84',2);
@@ -53,3 +53,73 @@ Commit;
 
 End;
 $$;
+
+select * from utilizador
+
+select * from user_update(5,'1232','123452')
+
+
+create or replace function user_update(_iduser int,pw character varying, newpw character varying)
+returns int as
+$$
+begin
+	update utilizador
+	set
+		password=newpw
+	where iduser=_iduser and password=pw;
+	if found then
+		return 1;
+	else 
+		return 0;
+	end if;
+end
+$$
+language plpgsql
+
+select * from consulta_delete(4)
+
+DROP FUNCTION consultas(integer)
+
+create or replace function consultas(_id_pessoa int)
+returns table
+(
+	_idconsulta int,
+	_dataconsulta date,
+	_descricao character varying,
+	_estado int,
+	_tipoconvencao character varying,
+	_pessoa_profsaude character varying,
+	_tipoconsulta_tipo character varying,
+	_local_local character varying
+)as
+$$
+begin
+	return query
+	select c.idconsulta,c.dataconsulta,c.descricao,c.estado,con.tipo,p.nome,t.tipo,l.morada
+	from consulta c LEFT OUTER JOIN  tipoconvencao con on (c.idtipoconvencao=con.idtipoconv)
+					LEFT OUTER JOIN pessoa p on (c.pessoa_idprofsaude=p.idpessoa)
+					LEFT OUTER JOIN tipoconsulta t on (t.idtipo = c.tipoconsulta_idtipo)
+					LEFT OUTER JOIN local l on (l.idlocal=c.local_idlocal) 
+					where c.pessoa_idutente=_id_pessoa
+					order by idconsulta;
+end
+$$
+language plpgsql
+
+
+create or replace function Consulta_Delete(_idconsulta int)
+returns int as
+$$
+begin
+	update consulta
+	set
+		estado=0
+	where idconsulta=_idconsulta;
+	if found then
+		return 1;
+	else 
+		return 0;
+	end if;
+end
+$$
+language plpgsql

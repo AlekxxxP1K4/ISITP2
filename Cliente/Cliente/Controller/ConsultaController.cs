@@ -45,7 +45,16 @@ namespace Cliente.Controller
         {
             return ConsultaModel.tipoconsultaNomes();
         }
-        
+
+        public static DataTable TakeConsultas(int id)
+        {
+            return ConsultaModel.takeConsultas(id);
+        }
+
+        public static int DeleteConsulta(int idcon,string token)
+        {
+            return ConsultaModel.DeleteConsulta(idcon,token);
+        }
 
     }
 }

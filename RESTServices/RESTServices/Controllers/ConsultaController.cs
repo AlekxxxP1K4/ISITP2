@@ -51,7 +51,23 @@ namespace RESTServices.Controllers
 
         }
 
-        
+        /// <summary>
+        /// "Apaga consulta" altera o seu estado, nada da base de dados é apagado
+        /// </summary>
+        /// <param name="id">id daconsulta</param>
+        /// <returns>1 sucesso, 0/-1 nao executou ou erro</returns>
+        [Authorize]
+        [HttpDelete("DeleteConsulta/{id}")]
+        public int DeleteConsulta(int id)
+        {
+
+            ConsultaModel consulta = new ConsultaModel(_connfiguration);
+
+            return consulta.DeleteConsulta(id);
+
+        }
+
+
 
     }
 }

@@ -44,7 +44,7 @@ namespace RESTServices.Controllers
                 return utilizador.LoginResposta(idlogedin, tokenString);
             }
             else
-                return null;
+                return utilizador.LoginResposta(-1, "");
 
         }
 
@@ -62,6 +62,21 @@ namespace RESTServices.Controllers
            
         }
 
+        /// <summary>
+        /// Muda a password do utilizador
+        /// </summary>
+        /// <param name="u">Recebe os dados do utilizador id pwantiga e nova</param>
+        /// <returns></returns>
+        [Authorize]
+        [HttpPut("updateUser")]
+        public string UpdateUser(User u)
+        {
+            UserModel utilizador = new UserModel(_connfiguration);
+
+            return utilizador.UpdateUserPassword(u.id, u.pw, u.newpw);
+
+        }
+
         private string GetTokenJWT()
         {
             var issuer = _connfiguration["Jwt:Issuer"];
@@ -77,5 +92,7 @@ namespace RESTServices.Controllers
             return stringToken;
 
         }
+
+
     }
 }

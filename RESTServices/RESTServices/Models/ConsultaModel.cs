@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Npgsql;
+using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -56,6 +57,7 @@ namespace RESTServices.Models
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return "Erro no servico" + ex.Message;
                 throw;
             }
@@ -77,7 +79,7 @@ namespace RESTServices.Models
                 conn.Open();
                 sql = @"select * from consulta_info(:_id)";
                 cmd = new NpgsqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("_id", idConsulta);
+                cmd.Parameters.Add("@_id", NpgsqlDbType.Integer).Value = idConsulta;
 
                 dt.Load(cmd.ExecuteReader());
 
@@ -99,12 +101,41 @@ namespace RESTServices.Models
             }
             catch (Exception)
             {
+                conn.Close();
                 return null;
                 throw;
             }
         }
 
-        
+
+        public int DeleteConsulta(int idConsulta)
+        {
+            Consulta c = new Consulta();
+
+            try
+            {
+                conn.Open();
+                sql = @"select * from consulta_delete(:_id)";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.Add("@_id", NpgsqlDbType.Integer).Value = idConsulta;
+
+                int result=(int)cmd.ExecuteScalar();
+
+                conn.Close();
+                
+
+                return result;
+
+
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return -1;
+                throw;
+            }
+        }
+
     }
      public class Consulta
         {

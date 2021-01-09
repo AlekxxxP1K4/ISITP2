@@ -110,5 +110,47 @@ namespace Cliente.Models
             }
 
         }
+
+        public static DataTable takeConsultas(int id)
+        {
+
+            DataTable dt = new DataTable();
+            SOAPServices.ServiceClient service = new SOAPServices.ServiceClient();
+            dt=service.ConsultasUtente(id);
+            return dt;
+        }
+
+        public static int DeleteConsulta(int idconsulta,string token)
+        {
+            try
+            {
+                url = "https://ipcaservicos.azurewebsites.net/consulta/DeleteConsulta/[ID]";
+                url = url.Replace("[ID]", idconsulta.ToString());
+
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri(url);
+
+                client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                HttpResponseMessage response = client.DeleteAsync(url).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    int resposta = JsonConvert.DeserializeObject<int>(response.Content.ReadAsStringAsync().Result);
+                    //string resposta = response.Content.ReadAsStringAsync().Result;
+                    return resposta;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                return -2;
+                throw new Exception("Add erro!", ex);
+            }
+
+        }
+
     }
 }

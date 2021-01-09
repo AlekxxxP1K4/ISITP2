@@ -49,7 +49,18 @@ namespace Cliente.View
 
         private void Button_ClickVerConsultas(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+            var showConsultas = new ConsultasShow(iduser, token);
+            showConsultas.Closed += (s, args) => this.Close();
+            showConsultas.Show();
+        }
 
+        private void Button_ClickUpdate(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            var update = new UpdateUser(iduser, token);
+            update.Closed += (s, args) => this.Close();
+            update.Show();
         }
     }
 }

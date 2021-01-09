@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Npgsql;
+using NpgsqlTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -82,7 +83,43 @@ namespace RESTServices.Models
 
         }
 
+
+        public string UpdateUserPassword(int id,string pw, string newpw)
+        {
+            try
+            {
+                conn.Open();
+                sql = @"select * from user_update(@_iduser,@pw,@newpw)";
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.Add("@_iduser", NpgsqlDbType.Integer).Value = id;
+                cmd.Parameters.Add("@pw", NpgsqlDbType.Varchar).Value = pw;
+                cmd.Parameters.Add("@newpw", NpgsqlDbType.Varchar).Value = newpw;
+
+                int result = (int)cmd.ExecuteScalar();
+
+                conn.Close();
+                if (result == 1)
+                return "sucesso";
+                return "Pw errada";
+            } 
+            catch (Exception ex)
+            {
+                conn.Close();
+                return "Fail " + ex.Message;
+                throw;
+            }
+        }
+
     }
+
+
+    public class User
+    {
+        public int id { get; set; }
+        public string pw { get; set; }
+        public string newpw { get; set; }
+    }
+
     public class AuthResponse
     {
         public int logedid { get; set; }

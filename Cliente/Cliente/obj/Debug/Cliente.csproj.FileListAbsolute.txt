@@ -110,3 +110,7 @@ C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\bin\Debug\System.Threading.
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\bin\Debug\System.ValueTuple.xml
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\MarcarCon.g.cs
 C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\MarcarCon.baml
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\UpdateUser.g.cs
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\UpdateUser.baml
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\ConsultasShow.g.cs
+C:\IPCA\3ºAno\Trabalho 2 ISI\ISITP2\Cliente\Cliente\obj\Debug\View\ConsultasShow.baml

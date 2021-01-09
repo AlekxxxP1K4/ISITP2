@@ -37,6 +37,16 @@ namespace Cliente.Controller
             }
         }
 
+
+        static public string UpdatePw(int id, string pw, string newpw,string token)
+        {
+            string var = RegistarModel.UpdateUser(id, pw, newpw, token);
+            if(var== "sucesso")
+            return var;
+            return var;
+        }
+
+
         static public bool CheckEmailandNif(string email,int nif)
         {
             return ServicesModel.checkEmailandNif(email, nif);

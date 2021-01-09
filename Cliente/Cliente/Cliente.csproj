@@ -137,6 +137,9 @@
     <Compile Include="Models\ConsultaModel.cs" />
     <Compile Include="Models\RegistarModel.cs" />
     <Compile Include="Models\ServicesModel.cs" />
+    <Compile Include="View\ConsultasShow.xaml.cs">
+      <DependentUpon>ConsultasShow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DocWindow.xaml.cs">
       <DependentUpon>DocWindow.xaml</DependentUpon>
     </Compile>
@@ -146,6 +149,13 @@
     <Compile Include="View\Registar.xaml.cs">
       <DependentUpon>Registar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UpdateUser.xaml.cs">
+      <DependentUpon>UpdateUser.xaml</DependentUpon>
+    </Compile>
+    <Page Include="View\ConsultasShow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DocWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -176,6 +186,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Registar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UpdateUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
