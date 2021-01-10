@@ -1,3 +1,10 @@
+//<Authors> Oleksandr Sierov & Rafael Faria </Authors>
+//<Email> a16991@alunos.ipca.pt & 17004@alunos.ipca.pt </Email>
+//<Institution> IPCA - Instituto Politecnico do Cávado e do Ave </Institution>
+//<Version=4.1/>
+//<Date>10/01/2021 <Last Change/></Date>
+//<OBS></OBS>
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
