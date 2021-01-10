@@ -85,7 +85,7 @@ namespace RESTServices.Models
 
             #endregion
 
-            if (rg.IsMatch(email) == true && n.is_nif == true && n.nif_validation==true)
+            if (rg.IsMatch(email) == true && n.is_nif == true)
             {
                 return true;
             }
