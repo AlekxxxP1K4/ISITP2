@@ -55,7 +55,7 @@ namespace RESTServices.Models
             string content;
             NIF.Root n;
 
-            //Weather URL
+           
             url = "https://www.nif.pt/?json=1&q=[NIF]&key=[APIKEY]";
 
             #region ConstroiURI
